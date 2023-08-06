@@ -5,7 +5,7 @@ import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { Topic } from "@/types/types";
 
 const styles = {
-    nav: "sticky top-0 w-full max-w-screen-xl right-0 z-5 bg-[--navBg] shadow-lg",
+    nav: "sticky top-0 w-full max-w-screen-xl right-0 z-5 bg-[--navBg] shadow-lg z-10",
     menuWrapper: "list-none w-full flex flex-wrap justify-stretch",
     navItem: "w-[100px] justify-center flex items-center bg-white hover:bg-red-400 even:w-inherit even:py-4 even:capitalize odd:w-inherit odd:py-4 odd:capitalize"
 }
