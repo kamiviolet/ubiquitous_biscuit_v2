@@ -7,30 +7,64 @@
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
+  margin: 0;
+  padding: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
 
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: rgb(100, 108, 255);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+.cooking {
+  background-color: rgb(255, 157, 190);
+}
+
+.football {
+  background-color: rgb(170, 198, 255);
+}
+
+.coding {
+  background-color: rgb(145, 249, 255);
+}
+
+
 @layer base {
   :root {
-    --background: rgb(255, 255, 255);
-    --btn-background: 200 10% 91%;
-    --btn-background-hover: 200 10% 89%;
-    --foreground: rgb(177, 171, 171);
+    --background: rgb(240, 248, 255);
+    --btn-background-hover: rgb(94, 96, 126);
+    --foreground: rgb(231, 231, 231);
+    --midlayer: rgb(255, 255, 255);
     --navBg: rgb(18, 110, 167);
     --highlight: rgb(255, 140, 0);
     --title-color: rgb(12, 75, 114);
+    --text: rgb(0, 0, 0);
+    --border: rgb(212, 212, 212);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --background: rgb(47, 50, 65);
-      --btn-background: 200 10% 9%;
-      --btn-background-hover: 200 10% 12%;
-      --foreground: rgb(27, 50, 56);
+      --btn-background-hover: rgb(94, 96, 126);
+      --foreground: rgb(89, 92, 109);
+      --midlayer: rgb(65, 64, 64);
       --title-color: rgb(236, 248, 255);
+      --text: rgb(255, 255, 255);
     }
   }
 }

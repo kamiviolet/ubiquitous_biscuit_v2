@@ -21,7 +21,7 @@ export default async function Nav() {
                 {allTopics? (
                     allTopics.map(topic => {
                         return (
-                            <li className={styles.navItem} key={topic.slug} title={topic.description}>
+                            <li className={`${styles.navItem} ${topic.slug}`} key={topic.slug} title={topic.description}>
                                 <Link href={"topics/" + topic.slug}>{topic.slug}</Link>
                             </li>
                         )})
