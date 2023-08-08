@@ -1,12 +1,13 @@
 import { BsFillChatSquareDotsFill } from "react-icons/bs";
 
+const styles = {
+    commentStat: "flex justify-between items-center px-4 py-1 bg-white border border-slate-400",
+}
+
 export default function CommentBtn({link, comments}) {
     
     return (
-        <button
-            onClick={()=>{}}
-            role="comment_no"
-            aria-roledescription="number_of_comments">
+        <button className={styles.commentStat} onClick={()=>{}}>
                 <BsFillChatSquareDotsFill /> {comments}
         </button>
     )

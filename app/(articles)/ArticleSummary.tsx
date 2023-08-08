@@ -6,14 +6,15 @@ import UpvoteBtn from "@/components/UpvoteBtn"
 import CommentBtn from "@/components/CommentBtn"
 
 const styles = {
-    article_card_wrapper: "grid grid-rows-4 text-left" ,
-    article_id: "before:content-['#']",
-    article_img_container: "col-start-3 row-start-1 row-span-2 justify-self-center",
-    article_img: "w-[225px] h-[175px]",
+    article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#']",
+    article_card_wrapper: "row-start-2 col-start-2 md:row-start-1 grid grid-rows-4 text-left place-items-start",
+    article_img_container: "col-start-2 md:col-start-3 md:row-span-full row-start-1  md:col-span-1 md:col-span-1 justify-self-center",
+    article_img: "object-cover w-full md:w-[275px] md:h-[225px]",
     title: "font-black",
-    topic: "text-right capitalize radius-[5px] place-self-start p-2",
+    topic: "text-right capitalize radius-[5px]  p-2",
     author: "before:content-['By'] before:mr-2 italic",
-    stat: "w-32 col-start-2 place-self-start px-4 m-2 "
+    stat: " py-2 w-[200px] gap-4 col-start-2 flex justify-between",
+    delete: "px-4 py-1 bg-rose-300 text-red-600 font-black border-red-400"
 }
 
 export default function ArticleSummary({
@@ -47,9 +48,12 @@ export default function ArticleSummary({
                     votes={article.votes} />
                 {
                     // user.username === article.author? 
-                    <div role="delete">
-                        <button value={article.article_id} onClick={(e)=>{}}> X </button>
-                    </div>
+                        <button
+                            className={styles.delete}
+                            value={article.article_id}
+                            onClick={(e)=>{}}>
+                                X
+                        </button>
                     // : <></>
                 }
             </div>

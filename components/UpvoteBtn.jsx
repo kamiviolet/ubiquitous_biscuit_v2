@@ -1,6 +1,10 @@
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { useState } from "react";
 
+const styles = {
+    voteStat: "flex justify-between items-center px-4 py-1 bg-white border border-slate-400",
+}
+
 export default function UpvoteBtn({type, id, votes}) {
     const [currVotes, setCurrVotes] = useState(votes);
     const [haveVoted, setHaveVoted] = useState(false);
@@ -30,6 +34,14 @@ export default function UpvoteBtn({type, id, votes}) {
     }
 
     return (
-        <button className={(haveVoted)? "voted" : "default"} role="votes" aria-roledescription="number_of_votes" onClick={handleVotes}><BsFillHandThumbsUpFill /> {currVotes}</button>
+        <button
+            className={
+                (haveVoted)? `${styles.voteStat} voted` 
+                : `${styles.voteStat} default`
+            }
+            onClick={handleVotes}>
+            <BsFillHandThumbsUpFill />
+            {currVotes}
+        </button>
     )
 }

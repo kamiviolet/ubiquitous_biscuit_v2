@@ -5,12 +5,13 @@ import ToggleTheme from "./ThemeToggle";
 
 const styles = {
     header: `
-    min-h-[150px] px-4 py-3 relative bg-[--background]
+    min-h-[200px] px-4 py-3 relative bg-[--background]
     after:content-[''] after:bg-[--highlight] after:h-[10px] after:w-full after:block after:absolute after:bottom-0 after:-translate-x-4`,
-    header_wrapper: "float-right text-right",
+    header_wrapper: "float-right text-right w-full",
+    header_anchor_wrapper: "flex justify-end pb-2",
     header_banner: "my-6 text-left block max-w-[500px] text-5xl font-black text-[--title-color] absolute bottom-0",
-    header_anchor: "px-6 uppercase font-semibold text-lg hover:text-[--highlight] last-of-type:px-0 last-of-type:ps-6",
-    header_text: "px-6"
+    header_anchor: "uppercase font-semibold text-lg hover:text-[--highlight] last-of-type:px-0 last-of-type:ps-6",
+    header_text: "pb-3"
 }
 
 export default function Header({user}:{user: User|null}) {
@@ -25,17 +26,21 @@ export default function Header({user}:{user: User|null}) {
     return (
         <header className={styles.header}>
             <div className={styles.header_wrapper}>
-                <Link href="/" className={styles.header_anchor}>Home</Link>
-                <span> | </span>
                 {user? (
                     <>
-                        <span className={styles.header_text}>Welcome back, {user.email}!</span>
-                        <LogoutButton />
-                        <span> | </span>
+                    <div className={styles.header_anchor_wrapper}>
+                        <Link href="/" className={styles.header_anchor}>Home</Link>
                         <Link href="/" className={styles.header_anchor}>My Profile</Link>
+                        <LogoutButton />
+                    </div>
+                        <p className={styles.header_text}>Welcome back, {user.email}!</p>
                     </>
                  ) : ( 
-                    <Link href="/login" className={styles.header_anchor}>Log in</Link>
+                    <>
+                        <Link href="/" className={styles.header_anchor}>Home</Link>
+                        <span> | </span>
+                        <Link href="/login" className={styles.header_anchor}>Log in</Link>
+                    </>
                 )}
                 <ToggleTheme />
                 <p>{date}</p>
