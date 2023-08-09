@@ -7,7 +7,8 @@ import { Topic } from "@/types/types";
 const styles = {
     nav: "sticky top-0 w-full max-w-screen-xl right-0 z-5 bg-[--navBg] shadow-lg z-10",
     menuWrapper: "list-none w-full flex flex-wrap justify-stretch",
-    navItem: "w-[100px] justify-center flex items-center bg-white hover:bg-red-400 even:w-inherit even:py-4 even:capitalize odd:w-inherit odd:py-4 odd:capitalize"
+    navItem: "justify-center flex items-center bg-white hover:bg-red-400",
+    navLink: "w-[100px] py-4 capitalize"
 }
 
 export default async function Nav() {
@@ -22,7 +23,7 @@ export default async function Nav() {
                     allTopics.map(topic => {
                         return (
                             <li className={`${styles.navItem} ${topic.slug}`} key={topic.slug} title={topic.description}>
-                                <Link href={"topics/" + topic.slug}>{topic.slug}</Link>
+                                <Link className={styles.navLink} href={"/topics/" + topic.slug} >{topic.slug}</Link>
                             </li>
                         )})
                     ) : (

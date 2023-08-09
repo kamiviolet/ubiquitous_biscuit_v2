@@ -1,6 +1,6 @@
-import ArticleList from './ArticleList';
-import FilterSorter from "./FilterSorter";
-import Pagination from "./Pagination";
+import ArticleList from "@/components/ArticleList";
+import FilterSorter from "@/components/FilterSorter";
+import Pagination from "@/app/(articles)/Pagination";
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 
@@ -12,7 +12,7 @@ export default async function Index() {
   return (
     <div className="h-full w-full grid place-items-center">
         <FilterSorter />
-        <ArticleList />
+        {/* <ArticleList /> */}
         <Pagination />
     </div>
   )
