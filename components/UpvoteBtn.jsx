@@ -1,3 +1,5 @@
+"use client"
+
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { useState } from "react";
 

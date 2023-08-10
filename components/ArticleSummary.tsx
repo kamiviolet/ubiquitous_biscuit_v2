@@ -26,7 +26,7 @@ export default function ArticleSummary({
     return (
         <>
             <p className={styles.article_id} aria-hidden>{article.article_id}</p>
-            <Link href="#" className={styles.article_card_wrapper}>
+            <Link href={`/articles/${article.article_id}`} className={styles.article_card_wrapper}>
                 <p className={styles.title}>{article.title}</p>
                 <p className={styles.author}>{article.author}</p>
                 <p>{article.created_at}</p>

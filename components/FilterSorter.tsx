@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react";
+
 const styles = {
     form: "w-full bg-[--foreground] color-[--text] text-sm text-left py-3 px-4",
     select: "py-2 m-2 radius-0 bg-white border border-slate-300",
@@ -10,10 +12,10 @@ const styles = {
 
 export default function FilterSorter() {
     // const {p, limit} = params;
-    // const [sort, setSort] = useState("created_at");
-    // const [order, setOrder] = useState("desc");
-    // const [customLimit, setCustomLimit] = useState(10);
-    // const [page, setPage] = useState(1);
+    const [sort, setSort] = useState("created_at");
+    const [order, setOrder] = useState("desc");
+    const [customLimit, setCustomLimit] = useState(10);
+    const [page, setPage] = useState(1);
     // const totalPage = Math.ceil(total_count / limit);
 
     // const handleFilter = (e) => {

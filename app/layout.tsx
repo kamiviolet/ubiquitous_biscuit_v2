@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import "./globals.css";
-import Nav from "@/components/Nav";
 
 export const metadata = {
   title: "Create Next App",
@@ -28,7 +28,11 @@ export default async function RootLayout({
         <div className="max-w-screen-lg w-full shadow-lg">
           <Header user={user} />
           <Nav />
-          <main className="min-h-[70vh]">{children}</main>
+          <main className="min-h-[70vh]">
+            <div className="h-full w-full grid place-items-center">
+              {children}
+            </div>
+          </main>
           <Footer />
         </div>
       </body>

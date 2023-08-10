@@ -47,7 +47,8 @@ button:focus-visible {
 @layer base {
   :root {
     --background: rgb(240, 248, 255);
-    --btn-background-hover: rgb(94, 96, 126);
+    --btn-background: rgb(212, 212, 212);
+    --btn-background-hover: rgb(186, 187, 199);
     --foreground: rgb(231, 231, 231);
     --midlayer: rgb(255, 255, 255);
     --navBg: rgb(18, 110, 167);

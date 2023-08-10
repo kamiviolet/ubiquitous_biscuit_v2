@@ -1,3 +1,5 @@
+"use client"
+
 import { BsFillChatSquareDotsFill } from "react-icons/bs";
 
 const styles = {
