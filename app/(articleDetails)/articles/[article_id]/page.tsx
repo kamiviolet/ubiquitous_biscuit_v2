@@ -3,6 +3,7 @@ import CommentBtn from "@/components/CommentBtn";
 import Link from "next/link";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { convertDate } from "@/utils/convert";
 
 const supabase = createServerComponentClient({cookies});
 
@@ -16,10 +17,6 @@ const styles = {
     stat: " py-2 w-[150px] gap-4 flex justify-between justify-self-end",
     date: "",
     delete: "px-4 py-1 bg-rose-300 text-red-600 font-black border-red-400"
-}
-
-export const convertDate = (datestamp:string) => {
-    return `${new Date(datestamp).toLocaleString('en-GB', { timeZone: 'UTC' })} UTC`
 }
 
 export default async function ArticleDetails({params}: {params: {article_id: string}}) {
