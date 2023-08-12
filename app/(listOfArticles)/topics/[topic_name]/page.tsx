@@ -4,8 +4,20 @@ import { Article } from "@/types/types";
 
 export const dynamic = "force-dynamic"
 
-export default async function Index({params}: {params: {topic_name: string}}) {
-  const listOfArticles:Article[]|null = await fetchArticleFromDb(params.topic_name);
+export default async function Index({
+  searchParams,
+  params
+}: {
+  params: {topic_name: string}
+  searchParams: {
+    topic:string|undefined
+    sort_by:string
+    order:string
+    limit:number
+    p:number
+}}) {
+  const {sort_by,order,limit,p} = searchParams;
+  const listOfArticles:Article[]|null = await fetchArticleFromDb(params.topic_name,sort_by,order,limit,p);
 
   if (listOfArticles) {
     return (

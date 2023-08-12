@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const styles = {
     form: "w-full bg-[--foreground] color-[--text] text-sm text-left py-3 px-4",
@@ -12,38 +13,43 @@ const styles = {
 
 export default function FilterSorter() {
     // const {p, limit} = params;
+    const router = useRouter();
     const [sort, setSort] = useState("created_at");
     const [order, setOrder] = useState("desc");
     const [customLimit, setCustomLimit] = useState(10);
     const [page, setPage] = useState(1);
     // const totalPage = Math.ceil(total_count / limit);
 
-    // const handleFilter = (e) => {
-    //     e.preventDefault();
-    //     setParams({sort_by: sort, order:order, limit:customLimit, p:page})
-    // }
+    const handleFilter = (e:React.FormEvent) => {
+        e.preventDefault();
+        router.push(`?sort_by=${sort}&order=${order}&limit=${customLimit}&p=${page}`)
+    }
 
-    // const handleReset = (e) => {
-    //     e.preventDefault();
-    // }
+    const handleReset = (e:React.FormEvent) => {
+        e.preventDefault();
+        setSort("created_at");
+        setOrder("desc");
+        setCustomLimit(10);
+        setPage(1);
+    }
 
     return (
-        <form className={styles.form} id="filter_sorter" action="" onSubmit={e=>{console.log(e)}} >
+        <form className={styles.form} id="filter_sorter" onSubmit={handleFilter} onReset={handleReset} >
             <label htmlFor="sort">Sort By
-                <select className={styles.select} value="" name="sort_by" onChange={e=>{console.log(e)}}>
+                <select className={styles.select} value={sort} name="sort_by" onChange={e=>setSort(e.target.value)}>
                     <option value="created_at">Date created</option>
                     <option value="comment_count">comment count</option>
                     <option value="votes">votes</option>
                 </select>
             </label>
             <label htmlFor="order">Order By
-                <select className={styles.select} value="" name="order" onChange={e=>{console.log(e)}}>
+                <select className={styles.select} value={order} name="order" onChange={e=>setOrder(e.target.value)}>
                     <option value="desc">Descending</option>
                     <option value="asc">Ascending</option>
                 </select>
             </label>
             <label>Articles shown per page
-                <select className={styles.select} value="" onChange={e=>{console.log(e)}}>
+                <select className={styles.select} value={customLimit} onChange={e=>setCustomLimit(+e.target.value)}>
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -53,7 +59,7 @@ export default function FilterSorter() {
                 </select>
             </label>
             <label>Jump to Page
-            <select className={styles.select} value="" onChange={e=>{console.log(e)}}>
+            <select className={styles.select} value={page} onChange={e=>setPage(+e.target.value)}>
                     {Array.apply(null, Array(10)).map((p, i)=>{
                         return <option key={"page_"+i} value={i+1}>{i+1}</option>
                     })}
