@@ -5,7 +5,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { convertDate } from "@/utils/convert";
 
-const supabase = createServerComponentClient({cookies});
 
 const styles = {
     article_id: "absolute top-0 right-0 m-4 text-left before:content-['#']",
@@ -20,6 +19,8 @@ const styles = {
 }
 
 export default async function ArticleDetails({params}: {params: {article_id: string}}) {
+    const supabase = createServerComponentClient({cookies});
+
     const article_id = +params.article_id;
     const { data } = await supabase.from("articles").select("*").eq("article_id", article_id);
     if (data) {
