@@ -3,13 +3,13 @@ import { cookies } from "next/headers";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {
-  profile: "my-10 grid md:grid-cols-2 gap-4 odd:col-start-1 even:col-start-2",
-  profileWrapper: "py-4 grid grid-cols-2",
+  profile: "bg-[--foreground] p-4 my-10 grid md:grid-cols-[200px_1fr] gap-4 odd:col-start-1 even:col-start-2",
+  profileWrapper: "py-4 w-[fit-content] grid grid-cols-2",
   avatarWrapper: "place-self-center",
-  avatar: "",
-  default_avatar: "",
-  label:"col-start-1",
-  value: "col-start-2"
+  avatar: "w-[200px] h-[200px] grid",
+  default_avatar: "bg-white border border-slate-500 text-9xl place-content-center",
+  label:"col-start-1 font-semibold text-left",
+  value: "col-start-2 text-right"
 }
 
 export default async function Page({ params }: {params: {userId: string}}) {
