@@ -1,7 +1,7 @@
-import FacebookLoginBtn from "./FacebookLoginBtn"
-import Messages from "./messages"
-import SignupBtn from "./SignupBtn"
-import PrevBtn from "@/components/PrevBtn"
+import FacebookLoginBtn from "./FacebookLoginBtn";
+import Messages from "./messages";
+import SignupBtn from "./SignupBtn";
+import PrevBtn from "@/components/PrevBtn";
 
 const styles = {
   formWrapper: "px-8 flex w-full flex-col items-center relative py-10",
@@ -45,7 +45,7 @@ export default function Login() {
         </button>
         <Messages />
       </form>
-      <FacebookLoginBtn />
+      {/* <FacebookLoginBtn /> */}
       <div className={styles.signupWrapper}>
         <p className="pb-5">Have not got an account yet? Why not sign up to become part of us? :)</p>
         <SignupBtn />

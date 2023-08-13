@@ -9,6 +9,8 @@ export async function POST(request: Request) {
   const formData = await request.formData()
   const email = String(formData.get('email'))
   const password = String(formData.get('password'))
+  const avatarUrl = String(formData.get('avatarUrl'))
+  const username = String(formData.get('username'))
   const supabase = createRouteHandlerClient({ cookies })
 
   const { error } = await supabase.auth.signUp({
@@ -16,6 +18,7 @@ export async function POST(request: Request) {
     password,
     options: {
       emailRedirectTo: `${requestUrl.origin}/auth/callback`,
+      data: {avatarUrl: avatarUrl, username: username}
     },
   })
 
@@ -23,7 +26,6 @@ export async function POST(request: Request) {
     return NextResponse.redirect(
       `${requestUrl.origin}/login?error=Could not authenticate user`,
       {
-        // a 301 status is required to redirect from a POST to a GET route
         status: 301,
       }
     )
@@ -32,7 +34,6 @@ export async function POST(request: Request) {
   return NextResponse.redirect(
     `${requestUrl.origin}/login?message=Check email to continue sign in process`,
     {
-      // a 301 status is required to redirect from a POST to a GET route
       status: 301,
     }
   )

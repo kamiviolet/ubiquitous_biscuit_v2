@@ -1,6 +1,6 @@
 "use client"
 
-import { signInWithFacebook } from "../auth/social-login/util"
+import { signInWithFacebook } from "../auth/social-login/util";
 
 const styles = {
     btn: "px-4 py-1 bg-blue-700 text-white"

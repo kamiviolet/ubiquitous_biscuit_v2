@@ -18,11 +18,16 @@ const styles = {
     delete: "px-4 py-1 bg-rose-300 text-red-600 font-black border-red-400"
 }
 
-export default async function ArticleDetails({params}: {params: {article_id: string}}) {
+export default async function ArticleDetails({
+    params
+}: {
+    params: {article_id: string}
+}) {
     const supabase = createServerComponentClient({cookies});
 
     const article_id = +params.article_id;
     const { data } = await supabase.from("articles").select("*").eq("article_id", article_id);
+    
     if (data) {
         return (
             <>

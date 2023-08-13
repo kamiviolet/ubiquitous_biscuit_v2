@@ -1,5 +1,5 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 
 export async function signInWithFacebook() {
   const supabase = createClientComponentClient();
@@ -9,7 +9,7 @@ export async function signInWithFacebook() {
   });
   
   if (data) {
-    redirect('/login');
+    redirect("/login");
   }
 }
 

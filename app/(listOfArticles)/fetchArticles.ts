@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { Article } from "@/types/types";
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 
 export async function fetchArticleFromDb(
     topic:string|null=null,

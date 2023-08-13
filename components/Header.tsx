@@ -2,6 +2,7 @@ import Link from "next/link";
 import { User } from "@/types/types";
 import LogoutButton from "./LogoutButton";
 import ToggleTheme from "./ThemeToggle";
+import { convertUID } from "@/utils/convert";
 
 const styles = {
     header: `
@@ -22,7 +23,6 @@ export default function Header({user}:{user: User|null}) {
         day: "numeric",
       }
     const date = new Date().toLocaleString("en-GB", options);
-
     return (
         <header className={styles.header}>
             <div className={styles.header_wrapper}>
@@ -30,7 +30,7 @@ export default function Header({user}:{user: User|null}) {
                     <>
                     <div className={styles.header_anchor_wrapper}>
                         <Link href="/" className={styles.header_anchor}>Home</Link>
-                        <Link href="/" className={styles.header_anchor}>My Profile</Link>
+                        <Link href={`/users/${convertUID(user.id)}`} className={styles.header_anchor}>My Profile</Link>
                         <LogoutButton />
                     </div>
                         <p className={styles.header_text}>Welcome back, {user.email}!</p>
