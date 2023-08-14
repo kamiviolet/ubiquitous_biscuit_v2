@@ -32,7 +32,7 @@ export default function ArticleSummary({
                 <p>{article.created_at}</p>
                 <p className={`${styles.topic} ${article.topic}`}>{article.topic}</p>
             </Link>
-            <Link href="#" className={styles.article_img_container}>
+            <Link href={`/articles/${article.article_id}`} className={styles.article_img_container}>
                 <img
                     className={styles.article_img}
                     src={article.article_img_url}
@@ -41,7 +41,7 @@ export default function ArticleSummary({
             <div className={styles.stat}>
                 <CommentBtn
                     link={"/articles/"+article.article_id+"#comments"}
-                    comments={article.comment_count} />
+                    comments={article.comments[0].count} />
                 <UpvoteBtn
                     type="article"
                     id={article.article_id}

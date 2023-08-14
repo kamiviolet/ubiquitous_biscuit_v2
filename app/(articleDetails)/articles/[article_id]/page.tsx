@@ -1,9 +1,8 @@
 import UpvoteBtn from "@/components/UpvoteBtn";
 import CommentBtn from "@/components/CommentBtn";
-import Link from "next/link";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { convertDate } from "@/utils/convert";
+import CommentSection from "./CommentSection";
+import { fetchArticleById } from "../../callback";
 
 
 const styles = {
@@ -23,39 +22,36 @@ export default async function ArticleDetails({
 }: {
     params: {article_id: string}
 }) {
-    const supabase = createServerComponentClient({cookies});
-
-    const article_id = +params.article_id;
-    const { data } = await supabase.from("articles").select("*").eq("article_id", article_id);
+    const articleId = Number(params.article_id);
+    const article = await fetchArticleById(articleId);
     
-    if (data) {
-        return (
-            <>
-                <h2 className="my-4 text-2xl font-extrabold">
-                    {data[0].title}
-                </h2>
-                <img
-                    className={styles.article_img}
-                    src={data[0].article_img_url}
-                    alt={data[0].title} />
-                <p className={`${styles.topic} ${data[0].topic}`}>
-                    {data[0].topic}
-                </p>
-                <p className={styles.article_id}>
-                    {data[0].article_id}
-                </p>
-                <p className={styles.body}>
-                    {data[0].body}
-                </p>
-                <p className={styles.date}>
-                    <Link href={"/users/"+data[0].author}>{data[0].author}</Link> | 
-                    <span> {convertDate(data[0].created_at)}</span>
-                </p>
-                <div className={styles.stat}>
-                    <CommentBtn link="#comments" comments={data[0].comment_count} />
-                    <UpvoteBtn type="article" id={data[0].article_id} votes={data[0].votes} />
-                </div>
-            </>
-        )
-    }
+    return (
+        <>
+            <h2 className="my-4 text-2xl font-extrabold">
+                {article?.title}
+            </h2>
+            <img
+                className={styles.article_img}
+                src={article?.article_img_url??""}
+                alt={article?.title} />
+            <p className={`${styles.topic} ${article?.topic}`}>
+                {article?.topic}
+            </p>
+            <p className={styles.article_id}>
+                {article?.article_id}
+            </p>
+            <p className={styles.body}>
+                {article?.body}
+            </p>
+            <p className={styles.date}>
+                <span>{article?.author}</span> | 
+                <span> {convertDate(article?.created_at)}</span>
+            </p>
+            <div className={styles.stat}>
+                <CommentBtn link="#comments" comments={article?.comments[0].count} />
+                <UpvoteBtn type="article" id={article?.article_id} votes={article?.votes} />
+            </div>
+            <CommentSection articleId={articleId} />
+        </>
+    )
 }

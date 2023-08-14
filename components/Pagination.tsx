@@ -1,14 +1,34 @@
-export default function Pagination() {
-    // const {p, limit} = params;
-    // const totalPage = Math.ceil(total_count / limit);
+"use client"
+
+import Link from "next/link";
+import { useSearchParams } from "next/navigation"
+
+const styles = {
+    prevNext: "my-8 flex justify-around max-w-[200px] font-semibold",
+    paginationLink: "pointer px-2 py-2 hover:bg-[--highlight]",
+    pagination: "my-8 font-semibold"
+}
+
+export default function Pagination({count}:{count:number|null}) {
+    const searchParams = useSearchParams();
+    const p = Number(searchParams.get("p") ?? 1);
+    const limit = Number(searchParams.get("limit") ?? 10);
+    const totalPage = Math.ceil(count??1 / limit);
 
     return (
         <>
-            {/* <div className="prev_next">
-                {+p === 1? <></> : <span onClick={()=>setParams({...params, p: p - 1})}>&lt; Prev</span>}
-                {+p === totalPage? <></> : <span onClick={()=>setParams({...params, p: p + 1})}>Next &gt;</span>}
+            <div className={styles.prevNext}>
+                {p === 1? <></> 
+                : <Link className={styles.paginationLink} href={`?p=${p-1}`}>&lt; Prev</Link>}
+                {p === totalPage? <></> 
+                : <Link className={styles.paginationLink} href={`?p=${p+1}`}>Next &gt;</Link>}
             </div>
-            <p className="pagination">Page <span onClick={()=>setParams({...params, p: p})}> {p} </span> / {totalPage}</p>*/}    
+            <p className={styles.pagination}>
+                Page 
+                <Link className={styles.paginationLink} href={`?p=${p-1}`}>
+                    {p}
+                </Link> / {totalPage}
+            </p>
         </> 
     )
 }

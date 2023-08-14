@@ -9,11 +9,13 @@ export default function ArticlePageLayout({children
   children: React.ReactNode
 }) {
     return (
-        <div className="p-8 bg-[--foreground]">
-            <article className={styles.article_wrapper}>
-            <PrevBtn />
-                { children }
-            </article>
-        </div>
+        <>
+            <div className="p-8 bg-[--foreground]">
+                <article className={styles.article_wrapper}>
+                <PrevBtn />
+                    { children }
+                </article>
+            </div>
+        </>
     )
 }

@@ -1,6 +1,7 @@
-import ArticleList from "@/components/ArticleList";
 import { fetchArticleFromDb } from "./fetchArticles";
-import { Article } from "@/types/types";
+import ArticleList from "@/components/ArticleList";
+import Pagination from "@/components/Pagination";
+import FilterSorter from "@/components/FilterSorter";
 
 export const dynamic = "force-dynamic";
 
@@ -15,11 +16,14 @@ export default async function Index({
     p:number
 }}) {
   const {sort_by,order,limit,p} = searchParams;
-  const listOfArticles:Article[]|null = await fetchArticleFromDb(null,sort_by,order,limit,p);
+  const {listOfArticles, count}= await fetchArticleFromDb(null,sort_by,order,limit,p);
+
   if (listOfArticles) {
     return (
       <>
-      <ArticleList listOfArticles={listOfArticles}/>
+        <FilterSorter count={count}/>
+        <ArticleList listOfArticles={listOfArticles}/>
+        <Pagination count={count}/>
       </>
     )
   }

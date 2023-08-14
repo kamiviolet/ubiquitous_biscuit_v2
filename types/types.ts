@@ -13,7 +13,7 @@ export type Article = {
     created_at: string,
     article_img_url: string,
     votes: number,
-    comment_count: number
+    comments?: any
 }
 
 export type Comment = {

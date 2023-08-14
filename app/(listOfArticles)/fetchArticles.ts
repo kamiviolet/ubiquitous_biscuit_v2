@@ -1,7 +1,6 @@
+import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { PostgrestSingleResponse } from "@supabase/supabase-js";
-import { Article } from "@/types/types";
 
 export const dynamic = "force-dynamic";
 
@@ -12,23 +11,24 @@ export async function fetchArticleFromDb(
     limit:number=10,
     page:number=1
 ) {
-    const supabase = createServerComponentClient({ cookies });
+    const supabase = createServerComponentClient<Database>({ cookies });
+    
     if (topic) {
-        const { data: listOfArticles }: PostgrestSingleResponse<Article[]> =await supabase
+        const { data: listOfArticles, count: count } =await supabase
             .from("articles")
-            .select("*")
-            .eq("topic", `${topic}`)
+            .select("*, comments(count)", { count: "exact"})
+            .match({topic: topic})
             .order(sortBy, {ascending: (order == "desc"? false : true)})
             .limit(limit)
             .range(limit*(page-1), (limit*page)-1);
-        return listOfArticles;
+        return {listOfArticles, count};
     }
 
-    const { data: listOfArticles }: PostgrestSingleResponse<Article[]> =await supabase
+    const { data: listOfArticles, count: count } =await supabase
         .from("articles")
-        .select("*")
+        .select("*, comments(count)", { count: "exact"})
         .order(sortBy, {ascending: (order == "desc"? false : true)})
         .limit(limit)
         .range(limit*(page-1), (limit*page)-1)
-    return listOfArticles;
+    return {listOfArticles, count};
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const styles = {
     form: "w-full bg-[--foreground] color-[--text] text-sm text-left py-3 px-4",
@@ -11,14 +11,17 @@ const styles = {
     sort: "bg-slate-300"
 }
 
-export default function FilterSorter() {
-    // const {p, limit} = params;
+export default function FilterSorter({count}:{count:number|null}) {
+    const searchParams = useSearchParams();
+    const currentPage = Number(searchParams.get("p") ?? 1);
+    const limit = Number(searchParams.get("limit") ?? 10);
+    const totalPage = Math.ceil((count?? 1) / limit);
+
     const router = useRouter();
     const [sort, setSort] = useState("created_at");
     const [order, setOrder] = useState("desc");
     const [customLimit, setCustomLimit] = useState(10);
-    const [page, setPage] = useState(1);
-    // const totalPage = Math.ceil(total_count / limit);
+    const [page, setPage] = useState(currentPage);
 
     const handleFilter = (e:React.FormEvent) => {
         e.preventDefault();
@@ -55,17 +58,16 @@ export default function FilterSorter() {
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
-                    <option value="">All</option>
                 </select>
             </label>
             <label>Jump to Page
             <select className={styles.select} value={page} onChange={e=>setPage(+e.target.value)}>
-                    {Array.apply(null, Array(10)).map((p, i)=>{
+                    {Array.apply(null, Array(totalPage)).map((p, i)=>{
                         return <option key={"page_"+i} value={i+1}>{i+1}</option>
                     })}
                 </select>
             </label>
-            <button className={`${styles.button} ${styles.sort}`} type="submit">Sort</button>
+            <button className={`${styles.button} ${styles.sort}`} type="submit">Search</button>
             <button className={`${styles.button} ${styles.reset}`} type="reset">Reset</button>
         </form>
     )
