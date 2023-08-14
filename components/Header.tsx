@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { User } from "@/types/types";
 import LogoutButton from "./LogoutButton";
-import ToggleTheme from "./ThemeToggle";
 import { convertUID } from "@/utils/convert";
 
 const styles = {
@@ -42,7 +41,6 @@ export default function Header({user}:{user: User|null}) {
                         <Link href="/login" className={styles.header_anchor}>Log in</Link>
                     </>
                 )}
-                <ToggleTheme />
                 <p>{date}</p>
             </div>
             <Link className={styles.header_banner} href="/"><h1>Ubiquitous Biscuit</h1></Link>
