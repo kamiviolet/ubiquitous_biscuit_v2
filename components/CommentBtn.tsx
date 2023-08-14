@@ -3,7 +3,7 @@
 import { BsFillChatSquareDotsFill } from "react-icons/bs";
 
 const styles = {
-    commentStat: "flex justify-between items-center px-4 py-1 bg-white border border-slate-400",
+    commentStat: "flex justify-start items-center px-4 py-1 bg-white border border-slate-400",
 }
 
 export default function CommentBtn({
@@ -14,7 +14,8 @@ export default function CommentBtn({
     
     return (
         <button className={styles.commentStat} onClick={()=>{}}>
-                <BsFillChatSquareDotsFill /> {comments}
+                <BsFillChatSquareDotsFill />
+                <span className="px-2">{comments}</span>
         </button>
     )
 }

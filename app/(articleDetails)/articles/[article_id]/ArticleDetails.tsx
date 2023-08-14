@@ -12,7 +12,7 @@ const styles = {
     body: "font-[1.15em] my-4 leading-6",
     topic: "text-right capitalize radius-[5px] p-2 justify-self-start",
     author: "before:content-['By'] before:mr-2 italic",
-    stat: " py-2 w-[150px] gap-4 flex justify-between justify-self-end",
+    stat: " py-2 w-max gap-4 flex justify-between justify-self-end",
     date: "",
     delete: "px-4 py-1 bg-rose-300 text-red-600 font-black border-red-400"
 }

@@ -43,7 +43,7 @@ export default function UpvoteBtn({type, id, votes}) {
             }
             onClick={handleVotes}>
             <BsFillHandThumbsUpFill />
-            {currVotes}
+            <span className="px-2">{currVotes}</span>
         </button>
     )
 }
