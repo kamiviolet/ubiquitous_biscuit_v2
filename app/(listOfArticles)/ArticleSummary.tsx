@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Article } from "@/types/types"
+import { Article, User } from "@/types/types"
 import UpvoteBtn from "@/components/UpvoteBtn"
 import CommentBtn from "@/components/CommentBtn"
 
@@ -19,8 +19,10 @@ const styles = {
 
 export default function ArticleSummary({
     article,
+    user
 }: {
     article: Article
+    user: User | undefined
 }) {
     
     return (
@@ -47,14 +49,14 @@ export default function ArticleSummary({
                     id={article.article_id}
                     votes={article.votes} />
                 {
-                    // user.username === article.author? 
+                    user?.user_metadata.username === article.author? 
                         <button
                             className={styles.delete}
                             value={article.article_id}
                             onClick={(e)=>{}}>
                                 X
                         </button>
-                    // : <></>
+                    : <></>
                 }
             </div>
 

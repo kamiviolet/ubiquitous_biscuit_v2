@@ -1,7 +1,7 @@
 import { fetchArticleFromDb } from "./callback";
-import ArticleList from "@/components/ArticleList";
-import Pagination from "@/components/Pagination";
-import FilterSorter from "@/components/FilterSorter";
+import ArticleList from "@/app/(listOfArticles)/ArticleList";
+import Pagination from "./Pagination";
+import FilterSorter from "./FilterSorter";
 
 export const dynamic = "force-dynamic";
 

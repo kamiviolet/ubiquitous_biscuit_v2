@@ -1,15 +1,13 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import ListOfComments from "./ListOfComments";
+import { getCurrentUser } from "@/app/auth/current-user/callback";
 
 const styles = {
     commentContainer: "text-left relative grid",
 }
 
 export default async function CommentSection({articleId}: {articleId: number}) {
-    const supabase = createServerComponentClient({cookies});
-    const {data: {session}} = await supabase.auth.getSession();
-    
+    const user = await getCurrentUser();
+
     // const [listOfComments, setListOfComments] = useState([]);
     // const [newComment, setNewComment] = useState({
     //     username: currentUser.username,
@@ -39,7 +37,7 @@ export default async function CommentSection({articleId}: {articleId: number}) {
             /> */}
             <ListOfComments
                 articleId={articleId}
-                currentUser={session?.user.user_metadata.username}
+                currentUser={user?.user_metadata.username}
             />
         </section>
     )

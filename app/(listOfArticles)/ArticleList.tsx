@@ -1,4 +1,4 @@
-import { Article } from "@/types/types";
+import { Article, User } from "@/types/types";
 
 import ArticleSummary from "./ArticleSummary";
 
@@ -7,7 +7,13 @@ const styles = {
     article_card: "animate-in grid grid-rows-[auto_auto_auto] grid-cols-[40px_auto] md:grid-cols-[40px_auto_max(275px)] gap-2 py-2 px-4 border-b-[1px] border-[--border] last:border-b-0",
 }
 
-export default function ArticleList({listOfArticles}:{listOfArticles: Article[]}) {
+export default function ArticleList({
+    listOfArticles,
+    user
+}:{
+    listOfArticles: Article[]
+    user: User | undefined
+}) {
 
     return (
         <ul className={styles.list_of_articles}>
@@ -20,6 +26,7 @@ export default function ArticleList({listOfArticles}:{listOfArticles: Article[]}
                     >
                         <ArticleSummary
                             article={article}
+                            user={user}
                         />
                     </li>
                 )

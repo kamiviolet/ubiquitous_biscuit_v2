@@ -1,6 +1,5 @@
+import { getCurrentUser } from "@/app/auth/current-user/callback";
 import { convertUID } from "@/utils/convert";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {
@@ -14,18 +13,17 @@ const styles = {
 }
 
 export default async function Page({ params }: {params: {userId: string}}) {
-  const supabase = createServerComponentClient({cookies});
-  const {data: {session}} = await supabase.auth.getSession();
+  const user = await getCurrentUser();
 
-  if (session) {
-    return (
+  if (user)
+  return (
       <div className={styles.profile}>
         <div className={styles.avatarWrapper}>
           {
-            session?.user.user_metadata.avatarUrl
+            user?.user_metadata.avatarUrl
             ? <img
                 className={styles.avatar}
-                src={session.user.user_metadata.avatarUrl} />
+                src={user.user_metadata.avatarUrl} />
             : <div
                 className={`${styles.avatar} ${styles.default_avatar}`}>
                   <HiUser />
@@ -34,16 +32,15 @@ export default async function Page({ params }: {params: {userId: string}}) {
         </div>
         <div className={styles.profileWrapper}>
             <p className={styles.label}>Username</p>
-            <p className={styles.value}>{session.user.user_metadata.username}</p>
+            <p className={styles.value}>{user.user_metadata.username}</p>
             <p className={styles.label}>User ID</p>
-            <p className={styles.value}>{convertUID(session?.user.id)}</p>
+            <p className={styles.value}>{convertUID(user?.id)}</p>
             <p className={styles.label}>Email</p>
-            <p className={styles.value}>{session.user.email}</p>
+            <p className={styles.value}>{user.email}</p>
             <p className={styles.label}>Role</p>
-            <p className={styles.value}>{session.user.role}</p>
+            <p className={styles.value}>{user.role}</p>
         </div>
       </div>
-    )
-  }
-  }
+  )
+}
   

@@ -2,7 +2,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/types/supabase";
 
-export const dynamic = "force-dynamic";
 
 export async function fetchArticleById(articleId:number) {
     const supabase = createServerComponentClient<Database>({cookies});
