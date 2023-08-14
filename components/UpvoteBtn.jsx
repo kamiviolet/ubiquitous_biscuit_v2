@@ -4,7 +4,7 @@ import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { useState } from "react";
 
 const styles = {
-    voteStat: "flex justify-between items-center px-4 py-1 bg-white border border-slate-400",
+    voteStat: "bg-blue-800 text-white flex justify-start items-center px-4 py-1 border border-blue-500",
 }
 
 export default function UpvoteBtn({type, id, votes}) {

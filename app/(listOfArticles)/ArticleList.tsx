@@ -1,5 +1,4 @@
 import { Article, User } from "@/types/types";
-
 import ArticleSummary from "./ArticleSummary";
 
 const styles = {

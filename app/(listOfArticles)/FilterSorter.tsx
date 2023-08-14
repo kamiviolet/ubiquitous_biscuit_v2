@@ -41,7 +41,6 @@ export default function FilterSorter({count}:{count:number|null}) {
             <label htmlFor="sort">Sort By
                 <select className={styles.select} value={sort} name="sort_by" onChange={e=>setSort(e.target.value)}>
                     <option value="created_at">Date created</option>
-                    <option value="comment_count">comment count</option>
                     <option value="votes">votes</option>
                 </select>
             </label>

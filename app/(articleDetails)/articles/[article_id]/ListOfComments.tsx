@@ -3,6 +3,18 @@ import { convertDate } from "@/utils/convert";
 import UpvoteBtn from "@/components/UpvoteBtn";
 import { HiUser } from "react-icons/hi2";
 
+const styles = {
+    commentCard: "bg-[--midlayer] px-2 py-1 my-5 w-full grid grid-cols-[35px_125px_auto] gap-3",
+    commentId: "col-start-1 row-start-1 before:content-['#']",
+    commentBody: "col-start-3 break-all",
+    avatar: "col-start-2 w-[125px] h-[125px] grid",
+    default_avatar: "bg-white border border-slate-500 text-6xl place-content-center",
+    author: "col-start-2 row-start-2 text-center",
+    date: "col-start-3 row-start-2",
+    btnWrapper: "col-start-3 row-start-2 justify-self-end w-[100px] flex justify-end",
+    deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black"
+}
+
 export default async function listOfComments({
     currentUser="", articleId
 }:{
@@ -16,26 +28,28 @@ export default async function listOfComments({
             <ul>
                 {listOfComments.map(comment => {
                     return (
-                        <li key={"comment_" + comment.comment_id} className='comment_card'>
-                            <div className="avatar" role="avatar">
+                        <li key={"comment_" + comment.comment_id} className={styles.commentCard}>
+                            <div className={`${styles.avatar} ${styles.default_avatar}`}>
                                 <HiUser />
                             </div>
-                            <p role="comment_id" aria-hidden>
+                            <p className={styles.commentId} aria-hidden>
                                 {comment.comment_id}
                             </p>
-                            <p role="comment_body" aria-roledescription="comment_body">
+                            <p className={styles.commentBody}>
                                 {comment.body}
                             </p>
-                            <span>
+                            <span className={styles.author} >
                                 {comment.author}
                             </span>
-                            <p role="date" aria-roledescription="created_at">
+                            <p className={styles.date} >
                                 {convertDate(comment.updated_at)}
                             </p>
-                            <UpvoteBtn type="comment" id={comment.comment_id} votes={comment.votes} />
-                            {currentUser === comment.author
-                            ? <div role="delete"><button value={comment.comment_id}> X </button></div> 
-                            : <></>}
+                            <div className={styles.btnWrapper}>
+                                {currentUser === comment.author
+                                ? <button className={styles.deleteBtn} value={comment.comment_id}> X </button>
+                                : <></>}
+                                <UpvoteBtn type="comment" id={comment.comment_id} votes={comment.votes} />
+                            </div>
                         </li>
                     )
                 })}
