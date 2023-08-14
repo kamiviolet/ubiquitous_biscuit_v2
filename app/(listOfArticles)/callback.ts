@@ -2,8 +2,6 @@ import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export const dynamic = "force-dynamic";
-
 export async function fetchArticleFromDb(
     topic:string|null=null,
     sortBy:string="created_at",
