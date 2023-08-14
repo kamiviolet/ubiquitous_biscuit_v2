@@ -1,7 +1,7 @@
-import { fetchCommentFromDb } from "../callback";
+import { fetchCommentFromDb } from "@/app/(articleDetails)/articles/callback"
 import { convertDate } from "@/utils/convert";
-import { HiUser } from "react-icons/hi2";
 import UpvoteBtn from "@/components/UpvoteBtn";
+import { HiUser } from "react-icons/hi2";
 
 export default async function listOfComments({
     currentUser="", articleId

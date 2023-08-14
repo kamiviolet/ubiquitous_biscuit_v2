@@ -1,7 +1,6 @@
-import ListOfComments from './ListOfComments'
-import NewCommentForm from './NewCommentForm'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers';
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import ListOfComments from "./ListOfComments";
 
 const styles = {
     commentContainer: "text-left relative grid",
@@ -25,7 +24,7 @@ export default async function CommentSection({articleId}: {articleId: number}) {
     // }, [])
 
     // if (isLoading) {
-    //     return  <div className='loading_page'>Fetching comments...</div>
+    //     return  <div className="loading_page">Fetching comments...</div>
     // }
 
     return (

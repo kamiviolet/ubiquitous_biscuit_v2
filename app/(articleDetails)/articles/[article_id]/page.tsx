@@ -1,6 +1,6 @@
-import CommentSection from "./CommentSection";
-import { fetchArticleById } from "../callback";
-import ArticleDetails from "./ArticleDetails";
+import CommentSection from "@/app/(articleDetails)/articles/[article_id]/CommentSection";
+import ArticleDetails from "@/app/(articleDetails)/articles/[article_id]/ArticleDetails";
+import { fetchArticleById } from "@/app/(articleDetails)/articles/callback";
 
 export default async function Article({
     params

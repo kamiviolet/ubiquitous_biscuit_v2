@@ -1,9 +1,9 @@
-import { fetchArticleFromDb } from "../../callback"
+import { fetchArticleFromDb } from "../../callback";
 import ArticleList from "@/components/ArticleList";
 import Pagination from "@/components/Pagination";
 import FilterSorter from "@/components/FilterSorter";
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 
 export default async function Index({
   searchParams,
