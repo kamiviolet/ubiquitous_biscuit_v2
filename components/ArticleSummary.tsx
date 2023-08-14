@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Article } from "@/types/types"
 import UpvoteBtn from "@/components/UpvoteBtn"
-import CommentBtn from "@/components/CommentBtn"
+import CommentBtn from "./CommentBtn"
 
 const styles = {
     article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#']",

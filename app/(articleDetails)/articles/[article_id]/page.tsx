@@ -1,5 +1,5 @@
 import CommentSection from "./CommentSection";
-import { fetchArticleById } from "../../callback";
+import { fetchArticleById } from "./callback";
 import ArticleDetails from "./ArticleDetails";
 
 export default async function Article({
