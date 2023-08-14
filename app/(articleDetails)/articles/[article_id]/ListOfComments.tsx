@@ -1,5 +1,4 @@
-import { useParams } from "next/navigation";
-import { fetchCommentFromDb } from "@/app/(articleDetails)/callback";
+import { fetchCommentFromDb } from "../callback";
 import { convertDate } from "@/utils/convert";
 import { HiUser } from "react-icons/hi2";
 import UpvoteBtn from "@/components/UpvoteBtn";
