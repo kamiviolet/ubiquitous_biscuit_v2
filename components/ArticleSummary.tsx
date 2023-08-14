@@ -35,7 +35,7 @@ export default function ArticleSummary({
             <Link href={`/articles/${article.article_id}`} className={styles.article_img_container}>
                 <img
                     className={styles.article_img}
-                    src={article.article_img_url}
+                    src={article.article_img_url??""}
                     alt={article.title} />
             </Link>
             <div className={styles.stat}>

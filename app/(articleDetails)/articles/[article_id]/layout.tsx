@@ -1,21 +1,18 @@
 import PrevBtn from "@/components/PrevBtn";
 
 const styles = {
-    article_wrapper: "text-left relative grid",
+    article_container: "p-8 bg-[--foreground] w-[1024px]",
 }
 
-export default function ArticlePageLayout({children
+export default function ArticlePageLayout({params, children
 }: {
-  children: React.ReactNode
+    params: {article_id: string}
+    children: React.ReactNode
 }) {
     return (
-        <>
-            <div className="p-8 bg-[--foreground]">
-                <article className={styles.article_wrapper}>
-                <PrevBtn />
-                    { children }
-                </article>
-            </div>
-        </>
+        <div className={styles.article_container}>
+            <PrevBtn />
+            { children }
+        </div>
     )
 }

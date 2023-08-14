@@ -3,6 +3,10 @@ import NewCommentForm from './NewCommentForm'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers';
 
+const styles = {
+    commentContainer: "text-left relative grid",
+}
+
 export default async function CommentSection({articleId}: {articleId: number}) {
     const supabase = createServerComponentClient({cookies});
     const {data: {session}} = await supabase.auth.getSession();
@@ -25,7 +29,7 @@ export default async function CommentSection({articleId}: {articleId: number}) {
     // }
 
     return (
-        <section id="comments">
+        <section id="comments" className={styles.commentContainer}>
             {/* <NewCommentForm
                 user={currentUser.username}
                 article_id={article_id}

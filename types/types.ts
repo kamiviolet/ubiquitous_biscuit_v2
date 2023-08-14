@@ -5,24 +5,25 @@ export type User = {
 }
 
 export type Article = {
-    article_id?: number,
-    body: string,
-    topic: string,
-    title: string,
+    article_id: number,
+    article_img_url: string | null,
     author: string,
+    author_id: string | null,
+    body: string,
     created_at: string,
-    article_img_url: string,
+    title: string,
+    topic: string,
     votes: number,
-    comments?: any
+    comments: any,
 }
 
 export type Comment = {
-    comment_id: number,
+    article_id: number | null,
+    author: string | null,
     body: string,
-    article_id: number,
-    author: string,
-    votes: number,
-    updated_at: string
+    comment_id: number,
+    updated_at: string,
+    votes: number
 }
 
 export type Topic = {
