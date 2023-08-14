@@ -4,12 +4,12 @@ import UpvoteBtn from "@/components/UpvoteBtn";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {
-    commentCard: "bg-[--midlayer] px-2 py-1 my-5 w-full grid grid-cols-[35px_125px_auto] gap-3",
+    commentCard: "bg-[--midlayer] p-4 my-5 w-full grid grid-cols-[35px_125px_auto] gap-3",
     commentId: "col-start-1 row-start-1 before:content-['#']",
     commentBody: "col-start-3 break-all",
-    avatar: "col-start-2 w-[125px] h-[125px] grid",
+    avatar: "col-start-2 w-[125px] h-[125px] grid bg-gray-200",
     default_avatar: "bg-white border border-slate-500 text-6xl place-content-center",
-    author: "col-start-2 row-start-2 text-center",
+    author: "col-start-2 row-start-2 text-center font-semibold",
     date: "col-start-3 row-start-2",
     btnWrapper: "col-start-3 row-start-2 justify-self-end w-[100px] flex justify-end",
     deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black"

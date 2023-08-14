@@ -1,7 +1,7 @@
 import PrevBtn from "@/components/PrevBtn";
 
 const styles = {
-    article_container: "p-8 bg-[--foreground] w-[1024px]",
+    article_container: "p-8 bg-[--foreground] w-inherit",
 }
 
 export default function ArticlePageLayout({params, children
