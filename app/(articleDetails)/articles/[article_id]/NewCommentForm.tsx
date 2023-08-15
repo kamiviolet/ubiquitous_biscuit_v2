@@ -1,4 +1,5 @@
 import { HiUser } from "react-icons/hi2";
+import { addComment } from "../callback";
 
 const styles = {
     newComment: "min-h-[100px] grid grid-cols-[1fr_3fr_1fr] grid-rows-[auto_1fr_auto_1fr_1fr_1fr] py-8 px-4 place-items-center gap-4 mb-4",
@@ -18,15 +19,17 @@ export default function NewCommentForm({
     articleId: number
     currentUser: string | null
 }) {
+
     return (
         <form
             className={styles.newComment}
-            action="./callback.ts"
-            method="post"
+            action={addComment}
             >
             <div className={styles.avatar}>
                 <HiUser />
             </div>
+            <input defaultValue={currentUser??""} className="hidden" name="user" />
+            <input defaultValue={articleId} className="hidden" name="article_id" />
             <label
                 htmlFor="author"
                 className={`${styles.authorLabel} required`}
@@ -40,7 +43,7 @@ export default function NewCommentForm({
                 name="author"
                 id="author"
                 type="text"
-                value={currentUser??"Guest"}
+                value={currentUser??"/"}
                 disabled
             />
             <label
@@ -54,11 +57,9 @@ export default function NewCommentForm({
                 name="body"
                 id="comment"
                 required
-
             />
             <button
                 className={styles.submitBtn}
-                type="submit"
             >
                 Add comment
             </button>
