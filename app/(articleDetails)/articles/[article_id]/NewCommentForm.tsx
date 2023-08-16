@@ -1,5 +1,4 @@
 import { HiUser } from "react-icons/hi2";
-import { addComment } from "../callback";
 
 const styles = {
     newComment: "min-h-[100px] grid grid-cols-[1fr_3fr_1fr] grid-rows-[auto_1fr_auto_1fr_1fr_1fr] py-8 px-4 place-items-center gap-4 mb-4",
