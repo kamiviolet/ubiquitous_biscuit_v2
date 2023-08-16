@@ -43,6 +43,15 @@ button:focus-visible {
   background-color: rgb(145, 249, 255);
 }
 
+.voted {
+  background-color: rgb(170, 198, 255);
+  color:rgb(12, 75, 114);
+}
+
+.default {
+  background-color: rgb(16, 42, 112);
+  color: white;
+}
 
 @layer base {
   :root {

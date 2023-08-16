@@ -13,7 +13,7 @@ export default async function listOfComments({
             <section className='list_of_comments'>
             <h3>Comments</h3>
             <ul>
-                {listOfComments.map(comment => <CommentContainer comment={comment} currentUser={currentUser} />)}
+                {listOfComments.map(comment => <CommentContainer comment={comment} currentUser={currentUser} key={"comment_" + comment.comment_id}/>)}
             </ul>
             </section>
         )

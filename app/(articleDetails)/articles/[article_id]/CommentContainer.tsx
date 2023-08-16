@@ -25,7 +25,6 @@ export default function CommentContainer({
 
   return (
     <li
-      key={"comment_" + comment.comment_id}
       className={styles.commentCard}
     >
       <div className={`${styles.avatar} ${styles.default_avatar}`}>
@@ -49,7 +48,7 @@ export default function CommentContainer({
             <input type="number" name="comment_id" defaultValue={comment.comment_id} className="hidden" /><button className={styles.deleteBtn}>X</button> </form>
         : <></>}
       <UpvoteBtn
-        type="comment"
+        type="comments"
         id={comment.comment_id}
         votes={comment.votes}
       />

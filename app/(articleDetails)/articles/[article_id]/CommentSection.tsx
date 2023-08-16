@@ -6,6 +6,9 @@ const styles = {
     commentContainer: "text-left relative grid",
 }
 
+export const dynamic = "force-dynamic";
+
+
 export default async function CommentSection({articleId}: {articleId: number}) {
     const user = await getCurrentUser();
 

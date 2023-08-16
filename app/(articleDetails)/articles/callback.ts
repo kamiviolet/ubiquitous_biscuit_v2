@@ -1,7 +1,8 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/types/supabase";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 
 export const fetchArticleById = async (articleId:number) => {
     const supabase = createServerActionClient<Database>({cookies});
@@ -49,6 +50,6 @@ export const deleteComment = async (formData:FormData) => {
         .insert({body: commentBody, article_id: articlePostedTo, author: author})
 
     if (error) console.log(error.message)
-    
+
     revalidatePath("/");
 }

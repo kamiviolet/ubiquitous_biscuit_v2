@@ -2,6 +2,9 @@ import CommentSection from "@/app/(articleDetails)/articles/[article_id]/Comment
 import ArticleDetails from "@/app/(articleDetails)/articles/[article_id]/ArticleDetails";
 import { fetchArticleById } from "@/app/(articleDetails)/articles/callback";
 
+export const dynamic = "force-dynamic";
+
+
 export default async function Article({
     params
 }: {

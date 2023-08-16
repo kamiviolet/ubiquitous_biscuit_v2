@@ -23,7 +23,8 @@ export default function NewCommentForm({
     return (
         <form
             className={styles.newComment}
-            action={addComment}
+            action={`/articles/${articleId}/post-comment`}
+            method="post"
             >
             <div className={styles.avatar}>
                 <HiUser />

@@ -3,6 +3,7 @@ import { Article, User } from "@/types/types";
 import UpvoteBtn from "@/components/UpvoteBtn";
 import CommentBtn from "@/components/CommentBtn";
 
+
 const styles = {
     article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#']",
     article_card_wrapper: "row-start-2 col-start-2 md:row-start-1 grid grid-rows-4 text-left place-items-start",
@@ -42,10 +43,10 @@ export default function ArticleSummary({
                 <CommentBtn
                     link={"/articles/"+article.article_id+"#comments"}
                     comments={article.comments[0].count} />
-                <UpvoteBtn
-                    type="article"
+                {/* <UpvoteBtn
+                    type="articles"
                     id={article.article_id}
-                    votes={article.votes} />
+                    votes={article.votes} /> */}
                 {
                     user?.user_metadata.username === article.author? 
                         <button
