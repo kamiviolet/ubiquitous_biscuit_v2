@@ -1,3 +1,4 @@
+import { getRequestPath } from "@/utils/convert";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -10,18 +11,13 @@ export const POST = async (req:Request) => {
   const commentBody = String(formData.get("body"))
   const supabase = createRouteHandlerClient({cookies})
   
-  const getRequestPath = (url:string) => {
-    const result = url.match(/^(.*)post-comment$/);
-    return result ? result[1] : requestUrl.origin;
-  }
-
   const { error } = await supabase
       .from("comments")
       .insert({body: commentBody, article_id: articlePostedTo, author: author})
 
   if (error) console.log(error.message)
 
-  return NextResponse.redirect(getRequestPath(requestUrl.href), {
+  return NextResponse.redirect(getRequestPath(requestUrl.href, "comment"), {
     status: 301
   })
 }
