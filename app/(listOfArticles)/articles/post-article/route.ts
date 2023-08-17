@@ -7,13 +7,15 @@ export const POST = async (req:Request) => {
   const requestUrl = new URL (req.url);
   const formData = await req.formData();
   const author = String(formData.get("author"));
-  const authorId = Number(formData.get("author_id"));
+  const authorId = String(formData.get("author_id"));
   const articleBody = String(formData.get("article_body"));
   const topic = String(formData.get("topic"));
   const title = String(formData.get("title"));
   const articleImage = String(formData.get("article_img_url"));
 
   const supabase = createRouteHandlerClient({cookies})
+
+  console.log(authorId)
 
   const {data, error} = await supabase
     .from("articles")

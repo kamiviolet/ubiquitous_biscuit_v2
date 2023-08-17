@@ -1,5 +1,6 @@
 import { Database } from "@/types/supabase";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerActionClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function fetchArticleFromDb(
@@ -30,3 +31,18 @@ export async function fetchArticleFromDb(
         return {listOfArticles, count};
     }
 }
+
+export const deleteArticle = async (formData:FormData) => {
+    "use server"
+    const supabase = createServerActionClient({cookies});
+    const articleId = Number(formData.get("article_id"));
+  
+    const {error} = await supabase
+        .from("articles")
+        .delete()
+        .eq("article_id", articleId)
+  
+    if (error) console.log(error.message)
+    
+    revalidatePath("/");
+  }

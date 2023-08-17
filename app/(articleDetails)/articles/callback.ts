@@ -1,8 +1,7 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/types/supabase";
-import { revalidatePath, revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export const fetchArticleById = async (articleId:number) => {
     const supabase = createServerActionClient<Database>({cookies});
