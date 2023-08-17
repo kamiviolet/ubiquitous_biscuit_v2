@@ -13,12 +13,15 @@ export default async function Article({
     const articleId = +params.article_id;
     const {article} = await fetchArticleById(articleId);
 
-    if (article) {
+
+    if (article && article.length > 0) {
         return (
             <>
                 <ArticleDetails article={article[0]} />
                 <CommentSection articleId={articleId} />
             </>
         )
+    } else {
+        return <p>The article is not existing at the moment.</p>
     }
 }

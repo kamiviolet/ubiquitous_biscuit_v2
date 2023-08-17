@@ -9,6 +9,7 @@ export const POST = async (req:Request) => {
   const author = String(formData.get("user"))
   const articlePostedTo = String(formData.get("article_id"))
   const commentBody = String(formData.get("body"))
+  
   const supabase = createRouteHandlerClient({cookies})
   
   const { error } = await supabase

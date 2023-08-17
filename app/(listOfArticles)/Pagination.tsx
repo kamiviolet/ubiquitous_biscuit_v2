@@ -13,7 +13,7 @@ export default function Pagination({count}:{count:number|null}) {
     const searchParams = useSearchParams();
     const p = Number(searchParams.get("p") ?? 1);
     const limit = Number(searchParams.get("limit") ?? 10);
-    const totalPage = Math.ceil(count??1 / limit);
+    const totalPage = Math.ceil((count??1) / limit);
 
     return (
         <>

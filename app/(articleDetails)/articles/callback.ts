@@ -37,19 +37,3 @@ export const deleteComment = async (formData:FormData) => {
     
     revalidatePath("/");
   }
-  
-  export const addComment = async (formData:FormData) => {
-    "use server"
-    const supabase = createServerActionClient({cookies});
-    const commentBody = String(formData.get("body"));
-    const author = String(formData.get("user"));
-    const articlePostedTo = Number(formData.get("article_id"));
-
-    const {error} = await supabase
-        .from("comments")
-        .insert({body: commentBody, article_id: articlePostedTo, author: author})
-
-    if (error) console.log(error.message)
-
-    revalidatePath("/");
-}

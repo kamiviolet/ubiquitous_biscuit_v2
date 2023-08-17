@@ -6,28 +6,34 @@ import { NextResponse } from "next/server"
 export const POST = async (req:Request) => {
   const requestUrl = new URL (req.url);
   const formData = await req.formData();
-  const author = formData.get("author");
-  const articleBody = formData.get("body");
-  const topic = formData.get("topic");
-  const title = formData.get("title");
-  const articleImage = formData.get("article_img_url");
+  const author = String(formData.get("author"));
+  const authorId = Number(formData.get("author_id"));
+  const articleBody = String(formData.get("article_body"));
+  const topic = String(formData.get("topic"));
+  const title = String(formData.get("title"));
+  const articleImage = String(formData.get("article_img_url"));
 
   const supabase = createRouteHandlerClient({cookies})
 
-  const {error} = await supabase
-    .from("article")
+  const {data, error} = await supabase
+    .from("articles")
     .insert({
       title,
       topic,
       author,
+      author_id: authorId,
       body: articleBody,
       votes: 0,
       article_img_url: articleImage
     })
+    .select()
 
   if (error) {
-    alert("Error occurred! Please check console for more information!");
     console.log(error.message);
+  }
+
+  if (data) {
+    console.log(data)
   }
 
   return NextResponse.redirect(getRequestPath(requestUrl.href, "article"), {
