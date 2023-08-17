@@ -6,10 +6,10 @@ const styles = {
     authorLabel: "row-start-1 col-start-2 col-span-2 justify-self-start",
     warning: "after:content-['*'] after:mx-2 after:text-red-700",
     inputField: "border border-slate-400",
-    author: "row-start-2 col-start-2 col-span-2 justify-self-start align-self-start h-[30px]",
+    author: "row-start-2 col-start-2 col-span-2 justify-self-start align-self-start h-[30px]  disabled:bg-gray-300",
     commentLabel: "row-start-3 col-start-2 col-span-2 justify-self-start",
-    commentBody: "row-start-4 row-span-2 col-start-2 col-span-2 md:row-start-4 md:row-span-2 md:col-start-2 place-self-stretch resize-none",
-    submitBtn: "row-start-6 col-start-2 justify-self-start mt-4 bg-green-700 text-white h-fit max-w-[150px] px-2 py-2"
+    commentBody: "row-start-4 row-span-2 col-start-2 col-span-2 md:row-start-4 md:row-span-2 md:col-start-2 place-self-stretch resize-none disabled:bg-gray-300",
+    submitBtn: "row-start-6 col-start-2 justify-self-start mt-4 bg-green-700 text-white h-fit max-w-[150px] px-2 py-2 disabled:bg-gray-300 disabled:text-gray-800 disabled:cursor-not-allowed"
 }
 
 export default function NewCommentForm({
@@ -56,10 +56,12 @@ export default function NewCommentForm({
                 className={`${styles.inputField} ${styles.commentBody}`}
                 name="body"
                 id="comment"
+                disabled={currentUser? false: true}
                 required
             />
             <button
                 className={styles.submitBtn}
+                disabled={currentUser? false: true}
             >
                 Add comment
             </button>

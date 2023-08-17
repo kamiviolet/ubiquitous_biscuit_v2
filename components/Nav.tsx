@@ -1,3 +1,4 @@
+import { User } from "@/types/types";
 import { getAllTopicsFromDb } from "@/utils/getGeneralDataFromDb";
 import Link from "next/link";
 
@@ -9,7 +10,7 @@ const styles = {
     postBtn: "absolute top-0 right-0 py-1 px-4 bg-yellow-200 h-full flex place-items-center font-semibold hover:bg-orange-700 hover:text-white transition"
 }
 
-export default async function Nav() {
+export default async function Nav({user}:{user:User|null}) {
     const allTopics = await getAllTopicsFromDb();
     
     if (allTopics)
@@ -31,11 +32,17 @@ export default async function Nav() {
                     )})
                 }
             </ul>
+            {
+            (user)
+            ? <>
             <Link
                 className={styles.postBtn} 
                 href="/articles/post">
                 Post
             </Link>
+            </>
+            :<></>
+            }
         </nav>
     )
 }
