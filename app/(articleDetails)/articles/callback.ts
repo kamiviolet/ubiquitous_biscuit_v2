@@ -9,6 +9,7 @@ export const fetchArticleById = async (articleId:number) => {
         .from("articles")
         .select("*, comments(count)", { count: "exact"})
         .eq("article_id", articleId)
+        .single()
     return {article};
 }
 

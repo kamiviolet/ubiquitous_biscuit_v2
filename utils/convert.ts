@@ -6,13 +6,19 @@ export const convertUID = (uuid:string) => {
     return uuid.split("-").at(-1);
 } 
 
-export const getRequestPath = (url:string, type:string) => {
+export const getRequestPath = (url:string, type:string, action:string) => {
     let result:string[]|string = "/";
     if (type == "comment") {
-        result = url.match(/^(.*)post-comment$/) ?? "/";
+        if (action == "post") 
+            result = url.match(/^(.*)post-comment$/) ?? "/";
+        if (action == "edit")
+            result = url.match(/^(.*)edit-comment$/) ?? "/";
     } 
     if (type == "article") {
-        result = url.match(/^(.*)post-article$/) ?? "/";
+        if (action == "post") 
+            result = url.match(/^(.*)post-article$/) ?? "/";
+        if (action == "edit")
+            result = url.match(/^(.*)edit-article$/) ?? "/";
     }
     return result == "/" ? result : result[1];
   }

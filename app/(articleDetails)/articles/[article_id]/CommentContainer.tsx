@@ -1,4 +1,3 @@
-import UpvoteBtn from "@/components/UpvoteBtn";
 import { Comment } from "@/types/types";
 import { convertDate } from "@/utils/convert";
 import { HiUser } from "react-icons/hi2";
@@ -16,6 +15,7 @@ const styles = {
   deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black"
 }
 
+export const dynamic = "force-dynamic";
 
 export default function CommentContainer({
   comment, currentUser
@@ -45,13 +45,10 @@ export default function CommentContainer({
       <div className={styles.btnWrapper}>
         {currentUser === comment.author
         ? <form action={deleteComment}>
-            <input type="number" name="comment_id" defaultValue={comment.comment_id} className="hidden" /><button className={styles.deleteBtn}>X</button> </form>
+            <input type="number" name="comment_id" defaultValue={comment.comment_id} className="hidden" />
+            <button className={styles.deleteBtn}>X</button>
+          </form>
         : <></>}
-      <UpvoteBtn
-        type="comments"
-        id={comment.comment_id}
-        votes={comment.votes}
-      />
     </div>
   </li>
   )

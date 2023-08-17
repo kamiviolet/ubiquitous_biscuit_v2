@@ -1,5 +1,4 @@
 import CommentBtn from "@/components/CommentBtn";
-import UpvoteBtn from "@/components/UpvoteBtn";
 import { Article } from "@/types/types";
 import { convertDate } from "@/utils/convert";
 
@@ -42,7 +41,6 @@ export default function ArticleDetails({article}:{article:Article}) {
         </p>
         <div className={styles.stat}>
             <CommentBtn link="#comments" comments={article.comments[0].count} />
-            <UpvoteBtn type="article" id={article.article_id} votes={article.votes} />
         </div>
     </article>
   )

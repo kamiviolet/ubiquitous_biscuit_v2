@@ -38,7 +38,7 @@ export const POST = async (req:Request) => {
     console.log(data)
   }
 
-  return NextResponse.redirect(getRequestPath(requestUrl.href, "article"), {
+  return NextResponse.redirect(getRequestPath(requestUrl.href, "article", "post"), {
     status: 301
   })
 }

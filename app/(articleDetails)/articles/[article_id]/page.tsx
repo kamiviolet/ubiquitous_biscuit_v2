@@ -4,7 +4,6 @@ import { fetchArticleById } from "@/app/(articleDetails)/articles/callback";
 
 export const dynamic = "force-dynamic";
 
-
 export default async function Article({
     params
 }: {
@@ -14,10 +13,10 @@ export default async function Article({
     const {article} = await fetchArticleById(articleId);
 
 
-    if (article && article.length > 0) {
+    if (article) {
         return (
             <>
-                <ArticleDetails article={article[0]} />
+                <ArticleDetails article={article} />
                 <CommentSection articleId={articleId} />
             </>
         )

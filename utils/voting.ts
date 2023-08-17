@@ -1,20 +1,32 @@
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export const updateVotes = async(
-  type:string,
+export const updateVotesByArticleId = async(
   id:number,
   vote:number,
-  inc:boolean
 ) => {
-  const supabase = createServerActionClient({cookies});
-  const idColumn = type == "articles"? "article_id" : "comment_id";
-  const returnVal = inc ? vote+1 : vote-1;
+  const supabase = createClientComponentClient();
 
   const {data, error} = await supabase
-      .from(type)
-      .update({votes: returnVal})
-      .eq(idColumn, id)
+      .from("articles")
+      .update({votes: vote})
+      .eq("article_id", id)
+      .select()
+
+      if (error) console.log(error)
+      if (data) console.log(data)
+}
+
+export const updateVotesByCommentId = async(
+  id:number,
+  vote:number,
+) => {
+  const supabase = createClientComponentClient();
+
+  const {data, error} = await supabase
+      .from("comments")
+      .update({votes: vote})
+      .eq("comment_id", id)
+      .select()
 
       if (error) console.log(error)
       if (data) console.log(data)

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Article, User } from "@/types/types";
-import UpvoteBtn from "@/components/UpvoteBtn";
 import CommentBtn from "@/components/CommentBtn";
 import { deleteArticle } from "./callback";
+import {GrEdit} from "react-icons/gr";
 
+export const dynamic = "force-dynamic";
 
 const styles = {
     article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#']",
@@ -14,7 +15,8 @@ const styles = {
     topic: "text-right capitalize radius-[5px]  p-2",
     author: "before:content-['By'] before:mr-2 italic",
     stat: " py-2 w-[200px] gap-4 col-start-2 flex justify-start",
-    deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black"
+    deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black",
+    editBtn: "bg-green-400 border-green-700 px-3 py-1 border rounded-lg grid place-items-center"
 }
 
 export default function ArticleSummary({
@@ -24,8 +26,7 @@ export default function ArticleSummary({
     article: Article
     user: User | undefined
 }) {
-    console.log(user)
-    console.log(article.author_id)
+
     return (
         <>
             <p className={styles.article_id} aria-hidden>{article.article_id}</p>
@@ -53,13 +54,17 @@ export default function ArticleSummary({
                 <CommentBtn
                     link={"/articles/"+article.article_id+"#comments"}
                     comments={article.comments[0].count} />
-                {/* <UpvoteBtn
-                    type="articles"
-                    id={article.article_id}
-                    votes={article.votes} /> */}
                 {user?.id === article.author_id
-                ? <form action={deleteArticle}>
-                    <input type="number" name="article_id" defaultValue={article.article_id} className="hidden" /><button className={styles.deleteBtn}>X</button> </form>
+                ? <>
+                    <form action={deleteArticle}>
+                        <input type="number" name="article_id" defaultValue={article.article_id} className="hidden" /><button className={styles.deleteBtn}>X</button> 
+                    </form>
+                    <Link
+                        className={styles.editBtn}
+                        href={`/articles/${article.article_id}/edit`}>
+                        <GrEdit />
+                    </Link>
+                </>
                 : <></>}
             </div>
 
