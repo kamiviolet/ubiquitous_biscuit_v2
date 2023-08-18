@@ -14,9 +14,9 @@ const styles = {
     title: "font-black",
     topic: "text-right capitalize radius-[5px]  p-2",
     author: "before:content-['By'] before:mr-2 italic",
-    stat: " py-2 w-[200px] gap-4 col-start-2 flex justify-start",
-    deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black",
-    editBtn: "bg-green-400 border-green-700 px-3 py-1 border rounded-lg grid place-items-center"
+    stat: "mt-3 py-2 w-[200px] gap-4 col-start-2 flex justify-start",
+    deleteBtn: "bg-red-200 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black hover:bg-red-400",
+    editBtn: "bg-green-200 border-green-700 px-3 py-1 border rounded-lg grid place-items-center hover:bg-green-400"
 }
 
 export default function ArticleSummary({
