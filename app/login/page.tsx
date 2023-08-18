@@ -1,4 +1,3 @@
-import FacebookLoginBtn from "./FacebookLoginBtn";
 import Messages from "./messages";
 import SignupBtn from "./SignupBtn";
 import PrevBtn from "@/components/PrevBtn";
@@ -45,7 +44,6 @@ export default function Login() {
         </button>
         <Messages />
       </form>
-      {/* <FacebookLoginBtn /> */}
       <div className={styles.signupWrapper}>
         <p className="pb-5">Have not got an account yet? Why not sign up to become part of us? :)</p>
         <SignupBtn />

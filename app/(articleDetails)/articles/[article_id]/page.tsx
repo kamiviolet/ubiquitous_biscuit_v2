@@ -12,7 +12,6 @@ export default async function Article({
     const articleId = +params.article_id;
     const {article} = await fetchArticleById(articleId);
 
-
     if (article) {
         return (
             <>
