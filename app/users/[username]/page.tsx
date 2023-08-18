@@ -1,5 +1,6 @@
 import { getCurrentUser } from "@/app/auth/current-user/callback";
 import { convertUID } from "@/utils/convert";
+import Head from "next/head";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {

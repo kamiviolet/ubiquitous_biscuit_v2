@@ -5,6 +5,28 @@ import FilterSorter from "../../FilterSorter";
 
 export const dynamic = "force-dynamic";
 
+import { Metadata, ResolvingMetadata } from "next";
+import { searchParams } from "@/types/types";
+
+export async function generateMetadata({
+  params, searchParams
+}: {
+  params: {topic_name: string},
+  searchParams: searchParams
+}):Promise<Metadata> {
+  const { topic_name } = params;
+  const { p } = searchParams;
+  const formattedTopic = topic_name[0].toUpperCase() + topic_name.slice(1);
+
+  return (
+    p? {
+      title: `${formattedTopic} / Page ${p??1} - Ubiquitous Biscuit (v2)`,
+    }: {
+      title: `${formattedTopic} - Ubiquitous Biscuit (v2)`
+    }
+  )
+}
+
 export default async function Index({
   searchParams,
   params

@@ -30,3 +30,10 @@ export type Topic = {
     slug: string,
     description: string
 }
+
+export type searchParams = {
+    sort_by: string
+    order: string
+    limit: number
+    p: number
+}
