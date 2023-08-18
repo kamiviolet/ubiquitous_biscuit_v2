@@ -27,7 +27,7 @@ export default async function RootLayout({
         <div className="max-w-screen-lg w-full shadow-lg">
           <Header user={user} />
           <Nav user={user}/>
-          <main className="min-h-[70vh] w-full">
+          <main className="min-h-[70vh] w-full bg-[--midlayer]">
             <div className="h-full w-full grid place-items-center">
               {children}
             </div>

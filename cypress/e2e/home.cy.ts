@@ -9,7 +9,7 @@ describe("Home page", () => {
 
   context("main section", ()=> {
     it("the h1 contains the correct text", ()=>{
-      cy.get("[data-test='main-heading']").contains("Ubiquitous Biscuit")
+      cy.get("[data-test='main-heading']").contains("Cookiess! Forum")
     })
 
     it("the main page contains a navbar", ()=>{

@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation"
 
 const styles = {
-    prevNext: "my-8 flex justify-around max-w-[200px] font-semibold",
-    paginationLink: "pointer px-2 py-2 hover:bg-[--highlight]",
-    pagination: "my-8 font-semibold"
+    prevNext: "my-8 flex justify-around max-w-[200px] font-semibold  text-[--text]",
+    paginationLink: "pointer px-2 py-2 hover:bg-[--highlight] text-[--text]",
+    pagination: "my-8 font-semibold text-[--text]"
 }
 
 export default function Pagination({count}:{count:number|null}) {

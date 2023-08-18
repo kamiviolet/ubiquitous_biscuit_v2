@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const styles = {
-    form: "w-full bg-[--foreground] color-[--text] text-sm text-left py-3 px-4",
-    select: "py-2 m-2 radius-0 bg-white border border-slate-300",
+    form: "w-full bg-[--foreground] text-[--text] text-sm text-left py-3 px-4",
+    select: "text-black py-2 m-2 radius-0 bg-white border border-slate-300",
     button: "py-2 px-4 m-2 border border-slate-500 radius-0 hover:border-[--btn-background-hover]",
     reset: "bg-red-700 text-white",
     sort: "bg-slate-300"

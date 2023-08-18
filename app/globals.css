@@ -55,14 +55,15 @@ button:focus-visible {
 
 @layer base {
   :root {
-    --background: rgb(240, 248, 255);
+    --background: rgb(177, 141, 141);
+    --header-bg:rgb(216, 45, 45);
     --btn-background: rgb(212, 212, 212);
-    --btn-background-hover: rgb(186, 187, 199);
+    --btn-background-hover: rgb(218, 202, 202);
     --foreground: rgb(231, 231, 231);
     --midlayer: rgb(255, 255, 255);
-    --navBg: rgb(18, 110, 167);
-    --highlight: rgb(255, 140, 0);
-    --title-color: rgb(12, 75, 114);
+    --navBg: rgb(129, 62, 57);
+    --highlight: rgb(255, 183, 100);
+    --title-color: rgb(255, 255, 255);
     --text: rgb(0, 0, 0);
     --border: rgb(212, 212, 212);
   }
@@ -70,10 +71,11 @@ button:focus-visible {
   @media (prefers-color-scheme: dark) {
     :root {
       --background: rgb(47, 50, 65);
+      --header-bg:rgb(112, 29, 29);
       --btn-background-hover: rgb(94, 96, 126);
       --foreground: rgb(89, 92, 109);
       --midlayer: rgb(65, 64, 64);
-      --title-color: rgb(236, 248, 255);
+      --title-color: rgb(255, 250, 236);
       --text: rgb(255, 255, 255);
     }
   }

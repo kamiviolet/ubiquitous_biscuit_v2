@@ -7,12 +7,12 @@ import {GrEdit} from "react-icons/gr";
 export const dynamic = "force-dynamic";
 
 const styles = {
-    article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#']",
-    article_card_wrapper: "row-start-2 col-start-2 md:row-start-1 grid grid-rows-4 text-left place-items-start",
+    article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#'] text-[--text]",
+    article_card_wrapper: "row-start-2 col-start-2 md:row-start-1 grid grid-rows-4 text-left place-items-start  text-[--text]",
     article_img_container: "col-start-2 md:col-start-3 md:row-span-full row-start-1  md:col-span-1 md:col-span-1 justify-self-center",
     article_img: "object-cover w-full md:w-[275px] md:h-[225px] bg-gray-300",
-    title: "font-black",
-    topic: "text-right capitalize radius-[5px]  p-2",
+    title: "font-semibold",
+    topic: "text-right capitalize radius-[5px]  p-2 text-black",
     author: "before:content-['By'] before:mr-2 italic",
     stat: "mt-3 py-2 w-[200px] gap-4 col-start-2 flex justify-start",
     deleteBtn: "bg-red-200 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black hover:bg-red-400",

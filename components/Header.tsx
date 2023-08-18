@@ -5,7 +5,7 @@ import { convertUID } from "@/utils/convert";
 
 const styles = {
     header: `
-    min-h-[200px] px-4 py-3 relative bg-[--background]
+    min-h-[200px] px-4 py-3 relative bg-[--header-bg] text-[--text]
     after:content-[''] after:bg-[--highlight] after:h-[10px] after:w-full after:block after:absolute after:bottom-0 after:-translate-x-4`,
     header_wrapper: "float-right text-right w-full",
     header_anchor_wrapper: "flex justify-end pb-2",
@@ -45,7 +45,7 @@ export default function Header({user}:{user: User|null}) {
             </div>
             <Link className={styles.header_banner} href="/">
                 <h1 data-test="main-heading">
-                    Ubiquitous Biscuit
+                    Cookiess! Forum
                 </h1>
             </Link>
         </header>
