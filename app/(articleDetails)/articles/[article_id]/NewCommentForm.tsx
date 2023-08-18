@@ -22,6 +22,7 @@ export default function NewCommentForm({
     return (
         <form
             className={styles.newComment}
+            data-test="new_comment_form"
             action={`/articles/${articleId}/post-comment`}
             method="post"
             >

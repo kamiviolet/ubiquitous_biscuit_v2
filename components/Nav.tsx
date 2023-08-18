@@ -15,7 +15,7 @@ export default async function Nav({user}:{user:User|null}) {
     
     if (allTopics)
     return (
-        <nav className={styles.nav}>
+        <nav data-test="navbar" className={styles.nav}>
             <ul className={styles.menuWrapper}>
                 {allTopics.map(topic => {
                     return (
@@ -24,6 +24,7 @@ export default async function Nav({user}:{user:User|null}) {
                             key={topic.slug}
                             title={topic.description}>
                                 <Link
+                                    data-test="nav_item"
                                     className={styles.navLink}
                                     href={"/topics/" + topic.slug} >
                                     {topic.slug}
@@ -36,6 +37,7 @@ export default async function Nav({user}:{user:User|null}) {
             (user)
             ? <>
             <Link
+                data-test="post_article_btn"
                 className={styles.postBtn} 
                 href="/articles/post">
                 Post

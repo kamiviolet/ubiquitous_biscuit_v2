@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "update-types": "npx supabase gen types typescript --project-id tdcihopscupkwxngdvob > types/supabase.ts"
+    "update-types": "npx supabase gen types typescript --project-id tdcihopscupkwxngdvob > types/supabase.ts",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "latest",
@@ -22,6 +23,7 @@
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
+    "cypress": "^12.17.4",
     "encoding": "^0.1.13"
   }
 }

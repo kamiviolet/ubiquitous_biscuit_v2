@@ -15,12 +15,15 @@ export default async function ArticleList({
     const user:User|undefined = await getCurrentUser();
 
     return (
-        <ul className={styles.list_of_articles}>
+        <ul
+            className={styles.list_of_articles}
+            data-test="article_list">
             {(!listOfArticles) ? <></>
                 : listOfArticles.map(article => {
                 return (
                     <li
                         key={"article_"+article.article_id}
+                        data-test={"article_"+article.article_id}
                         className={styles.article_card}
                     >
                         <ArticleSummary

@@ -40,7 +40,7 @@ export default function Login() {
           placeholder="••••••••"
           required
         />
-        <button type="submit" className={styles.loginBtn}>
+        <button type="submit" data-test="login" className={styles.loginBtn}>
           Sign In
         </button>
         <Messages />

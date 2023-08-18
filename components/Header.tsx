@@ -32,18 +32,22 @@ export default function Header({user}:{user: User|null}) {
                         <Link href={`/users/${convertUID(user.id)}`} className={styles.header_anchor}>My Profile</Link>
                         <LogoutButton />
                     </div>
-                        <p className={styles.header_text}>Welcome back, {user.email}!</p>
+                        <p data-test="login_greeting" className={styles.header_text}>Welcome back, {user.email}!</p>
                     </>
                  ) : ( 
                     <>
                         <Link href="/" className={styles.header_anchor}>Home</Link>
                         <span> | </span>
-                        <Link href="/login" className={styles.header_anchor}>Log in</Link>
+                        <Link href="/login" data-test="loginBtn" className={styles.header_anchor}>Log in</Link>
                     </>
                 )}
                 <p>{date}</p>
             </div>
-            <Link className={styles.header_banner} href="/"><h1>Ubiquitous Biscuit</h1></Link>
+            <Link className={styles.header_banner} href="/">
+                <h1 data-test="main-heading">
+                    Ubiquitous Biscuit
+                </h1>
+            </Link>
         </header>
     )
 }
