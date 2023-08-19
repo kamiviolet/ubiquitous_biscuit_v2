@@ -53,10 +53,12 @@ export default function Login() {
       <Auth
         supabaseClient={supabase}
         providers={["github", "facebook"]}
+        redirectTo="https://cookiess-forum.vercel.app/auth/callback"
+        view="magic_link"
         queryParams={{
-          access_type: 'offline',
           prompt: 'consent',
         }}
+        showLinks={false}
         appearance={{
           theme: ThemeSupa,
           variables: {
