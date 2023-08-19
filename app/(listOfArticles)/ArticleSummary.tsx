@@ -8,9 +8,9 @@ export const dynamic = "force-dynamic";
 
 const styles = {
     article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#'] text-[--text]",
-    article_card_wrapper: "row-start-2 col-start-2 md:row-start-1 grid grid-rows-4 text-left place-items-start  text-[--text]",
-    article_img_container: "col-start-2 md:col-start-3 md:row-span-full row-start-1 justify-self-stretch  md:col-span-1 md:col-span-1 justify-self-center",
-    article_img: "object-cover w-full min-w-[150px] min-h-[125px] md:w-[275px] md:h-[225px] bg-gray-300",
+    article_card_wrapper: "row-start-2 col-start-2 sm:row-start-1 grid grid-rows-4 text-left place-items-start  text-[--text]",
+    article_img_container: "col-start-2 sm:col-start-3 sm:row-span-full row-start-1 justify-self-stretch  sm:col-span-1 sm:col-span-1 justify-self-center",
+    article_img: "object-cover w-full min-w-[150px] min-h-[125px] sm:w-[275px] sm:h-[225px] bg-gray-300",
     title: "font-semibold",
     topic: "text-right capitalize radius-[5px]  p-2 text-black",
     author: "before:content-['By'] before:mr-2 italic",

@@ -3,12 +3,12 @@ import { getAllTopicsFromDb } from "@/utils/getGeneralDataFromDb";
 
 const styles = {
     articleFormWrapper: "w-inherit grid place-items-center py-4 px-10 mt-14 bg-[--foreground]",
-    articleForm: "my-4 grid gap-4 md:grid-cols-[max(100px)_min(500px)] md:grid-rows-[auto_auto_auto_auto] md:place-items-start text-left",
+    articleForm: "my-4 grid gap-4 sm:grid-cols-[max(100px)_min(500px)] sm:grid-rows-[auto_auto_auto_auto] sm:place-items-start text-left",
     articleBodyArea: "border border-slate-400 bg-[--midlayer] y-[500px] w-full break-all resize-none h-[300px]",
-    imgUrl: "col-start-1 md:col-span-2 w-full",
+    imgUrl: "col-start-1 sm:col-span-2 w-full",
     inputBox: "bg-[--midlayer] text-[--text] py-1 border border-slate-400",
     inputKey: "font-semibold text-[--text]",
-    button: "md:col-span-2 justify-self-center mt-4 bg-green-700 text-white h-fit w-[150px] px-2 py-2 hover:bg-[--highlight] hover:text-black transition"
+    button: "sm:col-span-2 justify-self-center mt-4 bg-green-700 text-white h-fit w-[150px] px-2 py-2 hover:bg-[--highlight] hover:text-black transition"
 }
 
 export default async function NewArticleForm({

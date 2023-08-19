@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation"
 
 const styles = {
-    prevNext: "my-8 flex justify-around max-w-[200px] font-semibold  text-[--text]",
+    prevNext: "my-8 flex justify-around max-w-[200px] font-semibold text-[--text]",
     paginationLink: "pointer px-2 py-2 hover:bg-[--highlight] text-[--text]",
     pagination: "my-8 font-semibold text-[--text]"
 }

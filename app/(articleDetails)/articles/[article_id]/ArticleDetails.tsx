@@ -6,7 +6,7 @@ const styles = {
     article_innerWrapper: "text-left relative grid",
     article_title: "my-4 text-2xl font-extrabold",
     article_id: "absolute top-0 right-0 m-4 text-left before:content-['#']",
-    article_img: "w-2/3 md:w-[500px] h-auto md:h-[350px] object-cover mx-auto my-4 bg-slate-400",
+    article_img: "w-2/3 sm:w-[500px] h-auto sm:h-[350px] object-cover mx-auto my-4 bg-slate-400",
     title: "font-black",
     body: "font-[1.15em] my-4 leading-6",
     topic: "text-right capitalize radius-[5px] p-2 justify-self-start",
