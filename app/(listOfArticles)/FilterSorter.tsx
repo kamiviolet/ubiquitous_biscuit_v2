@@ -41,6 +41,7 @@ export default function FilterSorter({count}:{count:number|null}) {
                 <select className={styles.select} value={sort} name="sort_by" onChange={e=>setSort(e.target.value)}>
                     <option value="created_at">Date created</option>
                     <option value="author">Author name</option>
+                    <option value="article_no">Article no</option>
                 </select>
             </label>
             <label htmlFor="order">Order By
