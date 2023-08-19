@@ -13,9 +13,9 @@ export async function generateMetadata({searchParams}: {
   const {p} = searchParams;
   return (
     p? {
-      title: `All Articles / Page ${p} - Ubiquitous Biscuit (v2)`
+      title: `All Articles / Page ${p} - Cookiess Forum`
     }: {
-      title: `All Articles - Ubiquitous Biscuit (v2)`
+      title: `All Articles - Cookiess Forum`
     }
   )
 }

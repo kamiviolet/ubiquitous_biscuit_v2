@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import "./globals.css";
 
 export const metadata = {
-  title: "Ubiquitous Biscuit (v2)",
+  title: "Cookiess Forum",
   description: "Built with NextJS Supabase Typescript",
 }
 

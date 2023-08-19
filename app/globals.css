@@ -72,6 +72,7 @@ button:focus-visible {
     :root {
       --background: rgb(47, 50, 65);
       --header-bg:rgb(112, 29, 29);
+      --btn-background: rgb(97, 82, 82);
       --btn-background-hover: rgb(94, 96, 126);
       --foreground: rgb(89, 92, 109);
       --midlayer: rgb(65, 64, 64);

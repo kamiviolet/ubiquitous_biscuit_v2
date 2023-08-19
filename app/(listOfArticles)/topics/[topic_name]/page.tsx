@@ -20,9 +20,9 @@ export async function generateMetadata({
 
   return (
     p? {
-      title: `${formattedTopic} / Page ${p??1} - Ubiquitous Biscuit (v2)`,
+      title: `${formattedTopic} / Page ${p??1} - Cookiess Forum`,
     }: {
-      title: `${formattedTopic} - Ubiquitous Biscuit (v2)`
+      title: `${formattedTopic} - Cookiess Forum`
     }
   )
 }

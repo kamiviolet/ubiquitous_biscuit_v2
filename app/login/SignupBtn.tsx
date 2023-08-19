@@ -7,7 +7,7 @@ export default function SignupBtn() {
 
     return (
     <button
-        className="rounded px-4 py-2 bg-blue-300 uppercase"
+        className="rounded px-4 py-2 bg-blue-300 dark:bg-blue-900 uppercase"
         onClick={()=>router.replace("/signup")} >
         Sign Up
     </button>

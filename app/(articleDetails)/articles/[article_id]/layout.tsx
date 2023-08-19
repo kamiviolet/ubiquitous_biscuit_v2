@@ -13,7 +13,7 @@ export async function generateMetadata({params}:{
     const {article} = await fetchArticleById(+article_id);
 
     return {
-        title: `${article?.title} By ${article?.author} - Ubiquitous Biscuit (v2)`
+        title: `${article?.title} By ${article?.author} -Cookiess Forum`
     }
 }
 

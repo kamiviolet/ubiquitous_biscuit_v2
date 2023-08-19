@@ -6,9 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 const styles = {
     form: "w-full bg-[--foreground] text-[--text] text-sm text-left py-3 px-4",
     select: "text-black py-2 m-2 radius-0 bg-white border border-slate-300",
-    button: "py-2 px-4 m-2 border border-slate-500 radius-0 hover:border-[--btn-background-hover]",
+    button: "py-2 px-4 m-2 border border-slate-500 radius-0 bg-[--btn-background] hover:border-[--btn-background-hover]",
     reset: "bg-red-700 text-white",
-    sort: "bg-slate-300"
 }
 
 export default function FilterSorter({count}:{count:number|null}) {
@@ -66,7 +65,7 @@ export default function FilterSorter({count}:{count:number|null}) {
                     })}
                 </select>
             </label>
-            <button className={`${styles.button} ${styles.sort}`} type="submit">Search</button>
+            <button className={`${styles.button}`} type="submit">Search</button>
             <button className={`${styles.button} ${styles.reset}`} type="reset">Reset</button>
         </form>
     )

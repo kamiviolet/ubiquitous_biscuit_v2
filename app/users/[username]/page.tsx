@@ -1,10 +1,9 @@
 import { getCurrentUser } from "@/app/auth/current-user/callback";
 import { convertUID } from "@/utils/convert";
-import Head from "next/head";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {
-  profile: "bg-[--foreground] p-4 my-10 grid md:grid-cols-[200px_1fr] gap-4 odd:col-start-1 even:col-start-2",
+  profile: "bg-[--foreground] p-4 my-10 grid md:grid-cols-[200px_1fr] gap-4 odd:col-start-1 even:col-start-2 text-[--text]",
   profileWrapper: "py-4 w-[fit-content] grid grid-cols-2",
   avatarWrapper: "place-self-center",
   avatar: "w-[200px] h-[200px] grid",
