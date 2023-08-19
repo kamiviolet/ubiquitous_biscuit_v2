@@ -7,15 +7,15 @@ import { searchParams } from "@/types/types";
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata({searchParams}: {
+export const generateMetadata = async({searchParams}: {
   searchParams: searchParams
-}):Promise<Metadata> {
+}):Promise<Metadata> => {
   const {p} = searchParams;
   return (
     p? {
-      title: `All Articles / Page ${p} - Cookiess Forum`
+      title: `All Articles / Page ${p} - Cookiess! Forum`
     }: {
-      title: `All Articles - Cookiess Forum`
+      title: `All Articles - Cookiess! Forum`
     }
   )
 }

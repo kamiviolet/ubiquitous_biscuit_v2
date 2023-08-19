@@ -2,38 +2,42 @@ import { fetchArticleFromDb } from "../../callback";
 import ArticleList from "@/app/(listOfArticles)/ArticleList";
 import Pagination from "../../Pagination";
 import FilterSorter from "../../FilterSorter";
-
-export const dynamic = "force-dynamic";
-
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { searchParams } from "@/types/types";
 
-export async function generateMetadata({
+export const generateMetadata = async({
   params, searchParams
 }: {
   params: {topic_name: string},
   searchParams: searchParams
-}):Promise<Metadata> {
+}):Promise<Metadata> => {
   const { topic_name } = params;
   const { p } = searchParams;
   const formattedTopic = topic_name[0].toUpperCase() + topic_name.slice(1);
 
   return (
     p? {
-      title: `${formattedTopic} / Page ${p??1} - Cookiess Forum`,
+      title: `${formattedTopic} / Page ${p??1} - Cookiess! Forum`,
     }: {
-      title: `${formattedTopic} - Cookiess Forum`
+      title: `${formattedTopic} - Cookiess! Forum`
     }
   )
 }
 
-export default async function Index({
+export const generateStaticParams = async() => {
+  return [
+    { topic_name: 'cooking' },
+    { topic_name: 'football' },
+    {topic_name: 'coding'}
+  ];
+}
+
+export default async function Page({
   searchParams,
   params
 }: {
   params: {topic_name: string}
   searchParams: {
-    topic:string|undefined
     sort_by:string
     order:string
     limit:number

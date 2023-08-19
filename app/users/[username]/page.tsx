@@ -1,5 +1,7 @@
 import { getCurrentUser } from "@/app/auth/current-user/callback";
+import { User } from "@/types/types";
 import { convertUID } from "@/utils/convert";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {
@@ -10,6 +12,10 @@ const styles = {
   default_avatar: "bg-white border border-slate-500 text-9xl place-content-center",
   label:"col-start-1 font-semibold text-left",
   value: "col-start-2 text-right"
+}
+
+export const metadata = {
+  title: "Account details - Cookiess! Forum",
 }
 
 export default async function Page({ params }: {params: {userId: string}}) {
@@ -43,4 +49,3 @@ export default async function Page({ params }: {params: {userId: string}}) {
       </div>
   )
 }
-  
