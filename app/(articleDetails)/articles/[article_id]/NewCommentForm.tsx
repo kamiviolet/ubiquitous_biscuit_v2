@@ -5,7 +5,7 @@ const styles = {
     avatar: "text-4xl row-start-1 row-span-6 col-start-1 text-slate-700 h-[100px] w-[100px] flex place-items-center place-content-center bg-gray-200 border border-slate-700",
     authorLabel: "row-start-1 col-start-2 col-span-2 justify-self-start",
     warning: "after:content-['*'] after:mx-2 after:text-red-700",
-    inputField: "border border-slate-400",
+    inputField: "border border-slate-400 justify-self-stretch",
     author: "row-start-2 col-start-2 col-span-2 justify-self-start align-self-start h-[30px]  disabled:bg-gray-300",
     commentLabel: "row-start-3 col-start-2 col-span-2 justify-self-start",
     commentBody: "row-start-4 row-span-2 col-start-2 col-span-2 sm:row-start-4 sm:row-span-2 sm:col-start-2 place-self-stretch resize-none disabled:bg-gray-300",
