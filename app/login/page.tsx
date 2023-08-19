@@ -1,6 +1,11 @@
+'use client'
+
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Messages from "./messages";
 import SignupBtn from "./SignupBtn";
 import PrevBtn from "@/components/PrevBtn";
+import { Auth } from "@supabase/auth-ui-react"
+import { ThemeSupa } from "@supabase/auth-ui-shared"
 
 const styles = {
   formWrapper: "px-8 flex w-full flex-col items-center relative py-10",
@@ -11,6 +16,7 @@ const styles = {
 }
 
 export default function Login() {
+  const supabase = createClientComponentClient();
 
   return (
     <div className={styles.formWrapper}>
@@ -44,6 +50,27 @@ export default function Login() {
         </button>
         <Messages />
       </form>
+      <Auth
+        supabaseClient={supabase}
+        providers={["github", "facebook"]}
+        queryParams={{
+          access_type: 'offline',
+          prompt: 'consent',
+        }}
+        appearance={{
+          theme: ThemeSupa,
+          variables: {
+            default: {
+              colors: {
+                defaultButtonText: 'darkred',
+                defaultButtonBorder: 'darkred',
+                defaultButtonBackgroundHover: 'papayawhip',
+              },
+            },
+          },
+        }}
+        onlyThirdPartyProviders
+      />
       <div className={styles.signupWrapper}>
         <p className="pb-5">Have not got an account yet? Why not sign up to become part of us? :)</p>
         <SignupBtn />
