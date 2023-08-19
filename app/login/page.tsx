@@ -56,6 +56,7 @@ export default function Login() {
         redirectTo="https://cookiess-forum.vercel.app/auth/callback"
         view="magic_link"
         queryParams={{
+          access_type: 'offline',
           prompt: 'consent',
         }}
         showLinks={false}

@@ -20,10 +20,6 @@ export default async function RootLayout({
   const supabase = createServerComponentClient({ cookies });
   const {data: { user }} = await supabase.auth.getUser();
 
-  console.log(user)
-
-
-
   return (
     <html lang="en">
       <body className="min-h-screen w-screen text-center bg-[--background] flex justify-center">
