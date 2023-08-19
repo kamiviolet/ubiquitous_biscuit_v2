@@ -1,11 +1,9 @@
 'use client'
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import AuthForm from "./AuthForm";
 import Messages from "./messages";
 import SignupBtn from "./SignupBtn";
 import PrevBtn from "@/components/PrevBtn";
-import { Auth } from "@supabase/auth-ui-react"
-import { ThemeSupa } from "@supabase/auth-ui-shared"
 
 const styles = {
   formWrapper: "px-8 flex w-full flex-col items-center relative py-10 text-[--text]",
@@ -15,9 +13,8 @@ const styles = {
   signupWrapper: "py-5 px-8 flex-1 flex flex-col w-full md:w-1/2 justify-center"
 }
 
-export default function Login() {
-  const supabase = createClientComponentClient();
 
+export default function Login() {
   return (
     <div className={styles.formWrapper}>
       <PrevBtn />
@@ -50,30 +47,7 @@ export default function Login() {
         </button>
         <Messages />
       </form>
-      <Auth
-        supabaseClient={supabase}
-        providers={["github", "facebook"]}
-        redirectTo="https://cookiess-forum.vercel.app/auth/callback"
-        view="magic_link"
-        queryParams={{
-          access_type: 'offline',
-          prompt: 'consent',
-        }}
-        showLinks={false}
-        appearance={{
-          theme: ThemeSupa,
-          variables: {
-            default: {
-              colors: {
-                defaultButtonText: 'darkred',
-                defaultButtonBorder: 'darkred',
-                defaultButtonBackgroundHover: 'papayawhip',
-              },
-            },
-          },
-        }}
-        onlyThirdPartyProviders
-      />
+      <AuthForm />
       <div className={styles.signupWrapper}>
         <p className="pb-5">Have not got an account yet? Why not sign up to become part of us? :)</p>
         <SignupBtn />
