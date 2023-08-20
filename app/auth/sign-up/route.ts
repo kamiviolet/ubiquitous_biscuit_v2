@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     password,
     options: {
       emailRedirectTo: `${requestUrl.origin}/auth/callback`,
-      data: {avatarUrl: avatarUrl, username: username, },
+      data: {avatar_url: avatarUrl, username: username, },
       captchaToken: captcha
     },
   })
