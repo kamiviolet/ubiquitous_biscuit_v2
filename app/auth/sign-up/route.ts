@@ -18,11 +18,9 @@ export async function POST(request: Request) {
     password,
     options: {
       emailRedirectTo: `${requestUrl.origin}/auth/callback`,
-      data: {avatarUrl: avatarUrl, username: username}
+      data: {avatarUrl: avatarUrl, username: username, },
     },
   })
-
-  console.log(error)
 
   if (error) {
     return NextResponse.redirect(

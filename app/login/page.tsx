@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import AuthForm from "./AuthForm";
 import Messages from "./messages";
@@ -47,7 +47,7 @@ export default function Login() {
         </button>
         <Messages />
       </form>
-      <AuthForm />
+      {/* <AuthForm /> */}
       <div className={styles.signupWrapper}>
         <p className="pb-5">Have not got an account yet? Why not sign up to become part of us? :)</p>
         <SignupBtn />

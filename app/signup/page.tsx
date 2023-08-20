@@ -1,5 +1,9 @@
+"use client"
+
+import { useRef, useState } from "react";
 import Messages from "./messages";
 import PrevBtn from "@/components/PrevBtn";
+import HCaptcha from '@hcaptcha/react-hcaptcha'
 
 const styles = {
   signupFormContainer: "px-8 w-full flex flex-col items-center relative py-10",
@@ -11,6 +15,10 @@ const styles = {
 }
 
 export default function Signup() {
+  const [captchaToken, setCaptchaToken] = useState<string>()
+  const captcha = useRef(null)
+
+  console.log(captchaToken)
   return (
     <div className={styles.signupFormContainer}>
       <PrevBtn />
@@ -64,6 +72,13 @@ export default function Signup() {
         >
           Submit
         </button>
+        <div className="place-self-center">
+        <HCaptcha
+          ref={captcha}
+          sitekey="e0fc1ef2-04f4-4e12-99ab-67edf0cf26d3"
+          onVerify={(token) => { setCaptchaToken(token) }}
+        />
+        </div>
         <Messages />
       </form>
     </div>
