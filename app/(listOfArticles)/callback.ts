@@ -15,7 +15,7 @@ export async function fetchArticleFromDb(
     if (topic == "coding" || topic == "cooking" || topic == "football" ) {
         const { data: listOfArticles, count: count } =await supabase
             .from("articles")
-            .select("*, comments(article_id)", { count: "exact"})
+            .select("*, comments(count)", { count: "exact"})
             .match({topic: topic})
             .order(sortBy, {ascending: (order == "desc"? false : true)})
             .limit(limit)
@@ -24,7 +24,7 @@ export async function fetchArticleFromDb(
     } else {
         const { data: listOfArticles, count: count } =await supabase
             .from("articles")
-            .select("*, comments(article_id)", { count: "exact"})
+            .select("*, comments(count)", { count: "exact"})
             .order(sortBy, {ascending: (order == "desc"? false : true)})
             .limit(limit)
             .range(limit*(page-1), (limit*page)-1);
