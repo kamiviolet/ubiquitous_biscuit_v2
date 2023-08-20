@@ -18,7 +18,6 @@ export default function Signup() {
   const [captchaToken, setCaptchaToken] = useState<string>()
   const captcha = useRef(null)
 
-  console.log(captchaToken)
   return (
     <div className={styles.signupFormContainer}>
       <PrevBtn />
