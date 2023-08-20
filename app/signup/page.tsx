@@ -72,12 +72,12 @@ export default function Signup() {
           Submit
         </button>
         <div className="place-self-center">
-        <input className="hidden" name="captcha" defaultValue={captchaToken} />
-        <HCaptcha
-          ref={captcha}
-          sitekey="e0fc1ef2-04f4-4e12-99ab-67edf0cf26d3"
-          onVerify={(token) => { setCaptchaToken(token) }}
-        />
+          <input className="hidden" name="captcha" defaultValue={captchaToken} />
+          <HCaptcha
+            ref={captcha}
+            sitekey="e0fc1ef2-04f4-4e12-99ab-67edf0cf26d3"
+            onVerify={(token) => { setCaptchaToken(token) }}
+          />
         </div>
         <Messages />
       </form>
