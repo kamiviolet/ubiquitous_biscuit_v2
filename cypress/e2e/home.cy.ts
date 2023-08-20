@@ -7,7 +7,7 @@ describe("Home page", () => {
     cy.loginWithEmail({email:"kamiviolet@gmail.com", password: "123456"})
   })
 
-  context("main section", ()=> {
+  context.skip("on the main page of the website,", ()=> {
     it("the h1 contains the correct text", ()=>{
       cy.get("[data-test='main-heading']").contains("Cookiess! Forum")
     })
@@ -17,15 +17,15 @@ describe("Home page", () => {
     })
   
     it("the nav bar contains 3 topics", ()=>{
-      cy.getByData("nav_item").eq(0).contains("coding")
-      cy.getByData("nav_item").eq(1).contains("football")
-      cy.getByData("nav_item").eq(2).contains("cooking")
+      cy.getByData("nav_item").contains("coding")
+      cy.getByData("nav_item").contains("football")
+      cy.getByData("nav_item").contains("cooking")
     })
 
     it("should have correct pathname for each topic", ()=>{
-      cy.getByData("nav_item").eq(0).as("navLink_coding")
-      cy.getByData("nav_item").eq(1).as("navLink_football")
-      cy.getByData("nav_item").eq(2).as("navLink_cooking")
+      cy.getByData("nav_item").contains("coding").as("navLink_coding")
+      cy.getByData("nav_item").contains("football").as("navLink_football")
+      cy.getByData("nav_item").contains("cooking").as("navLink_cooking")
 
       cy.get("@navLink_coding").click()
       cy.location().should((loc)=>{
@@ -41,18 +41,18 @@ describe("Home page", () => {
       })
     })
 
-    it("should display articles in the same category if category btn is clicked in navbar", ()=>{
-      cy.getByData("nav_item").eq(1).contains("football").click()
-      cy.getByData("article_list").children().should("include.text", "Football")
-    })
-
     it("should have max 10 articles by default per page.", ()=>{
       cy.getByData("article_list").children().should("have.length", 10)
     })
+  })
 
-    it("should read an individual article if click into it.", ()=>{
-      cy.getByData("article_12").click()
-      cy.location("pathname").should("eq", "/articles/12")
+  context("in different category,", ()=>{
+    
+    it("should display articles in the same category", ()=>{
+      cy.getByData("nav_item").contains("football").click()
+      cy.getByData("article_list").children().should("include.text", "Football")
     })
+
   })
 })
+

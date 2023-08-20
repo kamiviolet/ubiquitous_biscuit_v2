@@ -10,6 +10,7 @@ const styles = {
     reset: "bg-red-700 text-white",
 }
 
+
 export default function FilterSorter({count}:{count:number|null}) {
     const searchParams = useSearchParams();
     const currentPage = Number(searchParams.get("p") ?? 1);
@@ -42,6 +43,7 @@ export default function FilterSorter({count}:{count:number|null}) {
                     <option value="created_at">Date created</option>
                     <option value="author">Author name</option>
                     <option value="article_id">Article ID</option>
+                    <option value="comment_count">Comment count</option>
                 </select>
             </label>
             <label htmlFor="order">Order By

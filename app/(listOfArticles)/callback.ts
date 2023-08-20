@@ -15,7 +15,7 @@ export async function fetchArticleFromDb(
     if (topic == "coding" || topic == "cooking" || topic == "football" ) {
         const { data: listOfArticles, count: count } =await supabase
             .from("articles")
-            .select("*, comments(count)", { count: "exact"})
+            .select("*, comments(article_id)", { count: "exact"})
             .match({topic: topic})
             .order(sortBy, {ascending: (order == "desc"? false : true)})
             .limit(limit)
