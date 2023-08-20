@@ -24,7 +24,7 @@ export async function fetchArticleFromDb(
     } else {
         const { data: listOfArticles, count: count } =await supabase
             .from("articles")
-            .select("*, comments(count)", { count: "exact"})
+            .select("*, comments(article_id)", { count: "exact"})
             .order(sortBy, {ascending: (order == "desc"? false : true)})
             .limit(limit)
             .range(limit*(page-1), (limit*page)-1);
