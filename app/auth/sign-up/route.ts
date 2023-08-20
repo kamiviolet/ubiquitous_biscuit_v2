@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   const password = String(formData.get("password"))
   const avatarUrl = String(formData.get("avatarUrl"))
   const username = String(formData.get("username"))
-  // const captcha = String(formData.get("captcha"))
+  const captcha = String(formData.get("captcha"))
   const supabase = createRouteHandlerClient({ cookies })
 
   const { error } = await supabase.auth.signUp({
@@ -18,14 +18,13 @@ export async function POST(request: Request) {
     options: {
       emailRedirectTo: `${requestUrl.origin}/auth/callback`,
       data: {avatarUrl: avatarUrl, username: username, },
-      // captchaToken: captcha
+      captchaToken: captcha
     },
   })
 
   if (error) {
-    console.log(error)
     return NextResponse.redirect(
-      `${requestUrl.origin}/login?error=Could not authenticate user`,
+      `${requestUrl.origin}/login?error=${error.message}`,
       {
         status: 301,
       }
