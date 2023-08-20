@@ -23,12 +23,12 @@ export default async function Nav({user}:{user:User|null}) {
                             className={`${styles.navItem} ${topic.slug}`}
                             key={topic.slug}
                             title={topic.description}>
-                                <Link
-                                    data-test="nav_item"
-                                    className={styles.navLink}
-                                    href={"/topics/" + topic.slug} >
-                                    {topic.slug}
-                                </Link>
+                            <Link
+                                data-test="nav_item"
+                                className={styles.navLink}
+                                href={"/topics/" + topic.slug} >
+                                {topic.slug}
+                            </Link>
                         </li>
                     )})
                 }

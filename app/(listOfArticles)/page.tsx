@@ -15,7 +15,7 @@ export const generateMetadata = async({searchParams}: {
     p? {
       title: `All Articles / Page ${p} - Cookiess! Forum`
     }: {
-      title: `All Articles - Cookiess! Forum`
+      title: "All Articles - Cookiess! Forum"
     }
   )
 }

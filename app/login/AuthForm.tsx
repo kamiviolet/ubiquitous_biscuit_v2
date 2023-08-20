@@ -12,8 +12,8 @@ export default function AuthForm() {
     redirectTo="https://cookiess-forum.vercel.app/auth/callback"
     view="magic_link"
     queryParams={{
-      access_type: 'offline',
-      prompt: 'consent',
+      access_type: "offline",
+      prompt: "consent",
     }}
     showLinks={false}
     appearance={{
@@ -21,9 +21,9 @@ export default function AuthForm() {
       variables: {
         default: {
           colors: {
-            defaultButtonText: 'darkred',
-            defaultButtonBorder: 'darkred',
-            defaultButtonBackgroundHover: 'papayawhip',
+            defaultButtonText: "darkred",
+            defaultButtonBorder: "darkred",
+            defaultButtonBackgroundHover: "papayawhip",
           },
         },
       },

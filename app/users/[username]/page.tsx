@@ -1,7 +1,5 @@
 import { getCurrentUser } from "@/app/auth/current-user/callback";
-import { User } from "@/types/types";
 import { convertUID } from "@/utils/convert";
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { HiUser } from "react-icons/hi2";
 
 const styles = {
