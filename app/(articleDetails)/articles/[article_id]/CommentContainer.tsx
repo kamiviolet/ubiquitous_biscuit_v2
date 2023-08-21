@@ -15,8 +15,6 @@ const styles = {
   deleteBtn: "bg-red-300 text-red-800 border border-red-800 px-4 py-1 mx-6 font-black"
 }
 
-export const dynamic = "force-dynamic";
-
 export default function CommentContainer({
   comment, currentUser
 }: {

@@ -5,8 +5,6 @@ import FilterSorter from "./FilterSorter";
 import { Metadata } from "next";
 import { searchParams } from "@/types/types";
 
-export const dynamic = "force-dynamic";
-
 export const generateMetadata = async({searchParams}: {
   searchParams: searchParams
 }):Promise<Metadata> => {

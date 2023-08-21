@@ -4,8 +4,6 @@ import CommentBtn from "@/components/CommentBtn";
 import { deleteArticle } from "./callback";
 import {GrEdit} from "react-icons/gr";
 
-export const dynamic = "force-dynamic";
-
 const styles = {
     article_id: "text-left col-start-1 row-start-1 row-end-2 before:content-['#'] text-[--text]",
     article_card_wrapper: "row-start-2 col-start-2 sm:row-start-1 grid grid-rows-4 text-left place-items-start  text-[--text]",

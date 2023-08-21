@@ -24,6 +24,14 @@ export const generateMetadata = async({
   )
 }
 
+export const generateStaticParams = async() => {
+  return [
+    { topic_name: "cooking" },
+    { topic_name: "football" },
+    { topic_name: "coding"}
+  ];
+}
+
 export default async function Page({
   searchParams,
   params
