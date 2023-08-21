@@ -1,7 +1,16 @@
 export type User = {
     email?: string,
     password?: string,
-    [key:string]: any
+    avatar_url?: string,
+    username?: string,
+    user_id?: string,
+    [key: string]: any
+}
+
+export type CurrentUser = {
+    id: string,
+    email: string,
+    [key: string]: any
 }
 
 export type Article = {

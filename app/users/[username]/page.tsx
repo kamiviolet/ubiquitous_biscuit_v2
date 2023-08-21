@@ -1,7 +1,7 @@
-import { getCurrentUser } from "@/app/auth/current-user/callback";
-import { User } from "@/types/types";
 import { convertUID } from "@/utils/convert";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { HiUser } from "react-icons/hi2";
+import { cookies } from "next/headers";
 
 const styles = {
   profile: "bg-[--foreground] p-4 my-10 grid md:grid-cols-[200px_1fr] gap-4 odd:col-start-1 even:col-start-2 text-[--text]",
@@ -18,17 +18,22 @@ export const metadata = {
 }
 
 export default async function Page({ params }: {params: {userId: string}}) {
-  const user = await getCurrentUser();
+  const supabase = createServerComponentClient({cookies})
+  const {data: user} = await supabase
+    .from("users")
+    .select("*")
+    .eq("user_id", params.userId)
+    .single();
 
   if (user)
   return (
       <div className={styles.profile}>
         <div className={styles.avatarWrapper}>
           {
-            user?.user_metadata.avatarUrl
+            user.avatar_url
             ? <img
                 className={styles.avatar}
-                src={user.user_metadata.avatarUrl} />
+                src={user.avatar_url} />
             : <div
                 className={`${styles.avatar} ${styles.default_avatar}`}>
                   <HiUser />
@@ -37,13 +42,11 @@ export default async function Page({ params }: {params: {userId: string}}) {
         </div>
         <div className={styles.profileWrapper}>
             <p className={styles.label}>Username</p>
-            <p className={styles.value}>{user.user_metadata.username}</p>
-            <p className={styles.label}>User ID</p>
-            <p className={styles.value}>{convertUID(user?.id)}</p>
+            <p className={styles.value}>{user.username}</p>
+            <p className={styles.label}>User ID (last digits)</p>
+            <p className={styles.value}>{convertUID(user.user_id)}</p>
             <p className={styles.label}>Email</p>
             <p className={styles.value}>{user.email}</p>
-            <p className={styles.label}>Role</p>
-            <p className={styles.value}>{user.role}</p>
         </div>
       </div>
   )
