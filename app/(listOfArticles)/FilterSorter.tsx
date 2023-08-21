@@ -10,6 +10,8 @@ const styles = {
     reset: "bg-red-700 text-white",
 }
 
+export const dynamic = "force-dynamic";
+
 export default function FilterSorter({count}:{count:number|null}) {
     const searchParams = useSearchParams();
     const currentPage = Number(searchParams.get("p") ?? 1);
