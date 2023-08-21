@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.8.1",
+    "@prisma/client": "^5.1.1",
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/auth-ui-react": "^0.4.2",
     "@supabase/auth-ui-shared": "^0.1.6",
@@ -27,6 +28,7 @@
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "cypress": "^12.17.4",
-    "encoding": "^0.1.13"
+    "encoding": "^0.1.13",
+    "prisma": "^5.1.1"
   }
 }
